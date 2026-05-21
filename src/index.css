@@ -1,0 +1,60 @@
+@import "tailwindcss";
+
+/* Tell Tailwind to scan all JSX/JS files for class names */
+@source "./**/*.{js,jsx}";
+@source "../index.html";
+
+@theme {
+  --color-gold: #e8a020;
+  --color-gold-light: #f5c842;
+  --color-gold-dark: #d4620a;
+  --color-sunrise-start: #f5c842;
+  --color-sunrise-mid: #e8a020;
+  --color-sunrise-end: #d4620a;
+  --color-ink: #050505;
+  --color-charcoal: #0c0c0c;
+  --color-smoke: #141414;
+  --color-ash: #1f1f1f;
+  --color-muted: #9ca3af;
+  --font-sans: "Inter", system-ui, sans-serif;
+}
+
+@layer base {
+  *,
+  *::before,
+  *::after {
+    box-sizing: border-box;
+  }
+
+  html {
+    scroll-behavior: smooth;
+  }
+
+  body {
+    margin: 0;
+    font-family: var(--font-sans);
+    background-color: #050505;
+    color: #f5f5f5;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+  }
+
+  #root {
+    min-height: 100vh;
+  }
+}
+
+@utility bg-sunrise {
+  background-image: linear-gradient(to right, #f5c842, #e8a020, #d4620a);
+}
+
+@utility text-sunrise {
+  background-image: linear-gradient(to right, #f5c842, #e8a020, #d4620a);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+}
+
+@utility border-sunrise {
+  border-color: color-mix(in srgb, #e8a020 35%, transparent);
+}
