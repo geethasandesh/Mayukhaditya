@@ -28,7 +28,7 @@ const ServicesPage = () => {
 
       <Services showLink={false} />
 
-      <section className="py-24 bg-ink border-t border-[#e8a020]/10">
+      <section className="py-24 bg-cream border-t border-[#e8a020]/15">
         <div className="max-w-7xl mx-auto px-6">
           <motion.div
             initial="initial"
@@ -39,7 +39,7 @@ const ServicesPage = () => {
             className="text-center mb-14"
           >
             <p className="text-sunrise uppercase tracking-[0.25em] text-sm mb-3">Methodology</p>
-            <h2 className="text-3xl font-bold text-white">SAP Activate Delivery Process</h2>
+            <h2 className="text-3xl font-bold text-ink">SAP Activate Delivery Process</h2>
           </motion.div>
 
           <motion.div
@@ -54,10 +54,10 @@ const ServicesPage = () => {
                 key={item.step}
                 variants={fadeUp}
                 transition={transition}
-                className="relative p-5 rounded-xl border border-[#e8a020]/15 bg-smoke text-center"
+                className="relative p-5 rounded-xl border border-[#e8a020]/20 bg-paper text-center"
               >
                 <span className="text-2xl font-bold text-sunrise">{item.step}</span>
-                <h3 className="text-white font-semibold mt-2 mb-2">{item.title}</h3>
+                <h3 className="text-ink font-semibold mt-2 mb-2">{item.title}</h3>
                 <p className="text-xs text-muted leading-relaxed">{item.desc}</p>
               </motion.div>
             ))}
@@ -65,7 +65,7 @@ const ServicesPage = () => {
         </div>
       </section>
 
-      <section className="py-24 bg-charcoal">
+      <section className="py-24 bg-paper">
         <div className="max-w-7xl mx-auto px-6">
           <motion.div
             initial="initial"
@@ -76,7 +76,7 @@ const ServicesPage = () => {
             className="text-center mb-12"
           >
             <p className="text-sunrise uppercase tracking-[0.25em] text-sm mb-3">Functional Coverage</p>
-            <h2 className="text-3xl font-bold text-white">SAP Module Expertise</h2>
+            <h2 className="text-3xl font-bold text-ink">SAP Module Expertise</h2>
           </motion.div>
 
           <motion.div
@@ -91,7 +91,7 @@ const ServicesPage = () => {
                 key={mod}
                 variants={fadeUp}
                 transition={transition}
-                className="px-4 py-2 rounded-full border border-[#e8a020]/25 bg-smoke text-sm text-sunrise"
+                className="px-4 py-2 rounded-full border border-[#e8a020]/30 bg-cream text-sm text-sunrise"
               >
                 {mod}
               </motion.span>

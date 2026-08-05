@@ -26,7 +26,7 @@ const About = () => {
         subtitle="We are a dedicated SAP solutions company helping enterprises modernize ERP, embrace the cloud, and unlock operational excellence."
       />
 
-      <section className="py-24 bg-ink">
+      <section className="py-24 bg-paper">
         <div className="max-w-7xl mx-auto px-6 grid lg:grid-cols-2 gap-16 items-center">
           <motion.div
             initial="initial"
@@ -36,7 +36,7 @@ const About = () => {
             transition={transition}
           >
             <p className="text-sunrise uppercase tracking-[0.25em] text-sm mb-4">Our Mission</p>
-            <h2 className="text-3xl font-bold text-white mb-6">
+            <h2 className="text-3xl font-bold text-ink mb-6">
               Empowering enterprises through intelligent SAP solutions
             </h2>
             <p className="text-muted leading-relaxed mb-4">
@@ -55,10 +55,10 @@ const About = () => {
             whileInView={{ opacity: 1, x: 0 }}
             viewport={viewport}
             transition={{ duration: 0.6 }}
-            className="p-8 rounded-2xl border border-[#e8a020]/20 bg-gradient-to-br from-smoke to-charcoal"
+            className="p-8 rounded-2xl border border-[#e8a020]/25 bg-gradient-to-br from-cream to-paper"
           >
             <p className="text-5xl font-bold text-sunrise mb-2">12+</p>
-            <p className="text-white font-semibold text-lg mb-4">Years of SAP Excellence</p>
+            <p className="text-ink font-semibold text-lg mb-4">Years of SAP Excellence</p>
             <ul className="space-y-3 text-sm text-muted">
               <li className="flex gap-2"><span className="text-sunrise">✓</span> SAP Gold Partner ecosystem alignment</li>
               <li className="flex gap-2"><span className="text-sunrise">✓</span> Cross-industry domain expertise</li>
@@ -69,7 +69,7 @@ const About = () => {
         </div>
       </section>
 
-      <section className="py-24 bg-charcoal border-t border-[#e8a020]/10">
+      <section className="py-24 bg-cream border-t border-[#e8a020]/15">
         <div className="max-w-7xl mx-auto px-6">
           <motion.div
             initial="initial"
@@ -80,7 +80,7 @@ const About = () => {
             className="text-center mb-14"
           >
             <p className="text-sunrise uppercase tracking-[0.25em] text-sm mb-3">Our Values</p>
-            <h2 className="text-3xl font-bold text-white">What Defines Us</h2>
+            <h2 className="text-3xl font-bold text-ink">What Defines Us</h2>
           </motion.div>
 
           <motion.div
@@ -95,7 +95,7 @@ const About = () => {
                 key={v.title}
                 variants={fadeUp}
                 transition={transition}
-                className="p-6 rounded-xl border border-[#e8a020]/15 bg-smoke"
+                className="p-6 rounded-xl border border-[#e8a020]/20 bg-paper"
               >
                 <h3 className="text-sunrise font-semibold text-lg mb-2">{v.title}</h3>
                 <p className="text-sm text-muted leading-relaxed">{v.desc}</p>
@@ -105,7 +105,7 @@ const About = () => {
         </div>
       </section>
 
-      <section className="py-24 bg-ink">
+      <section className="py-24 bg-paper">
         <div className="max-w-3xl mx-auto px-6">
           <motion.div
             initial="initial"
@@ -116,7 +116,7 @@ const About = () => {
             className="text-center mb-12"
           >
             <p className="text-sunrise uppercase tracking-[0.25em] text-sm mb-3">Our Journey</p>
-            <h2 className="text-3xl font-bold text-white">Company Milestones</h2>
+            <h2 className="text-3xl font-bold text-ink">Company Milestones</h2>
           </motion.div>
 
           <div className="space-y-0">

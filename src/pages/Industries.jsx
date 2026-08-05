@@ -39,7 +39,7 @@ const Industries = () => {
         subtitle="Industry-specific templates, best practices, and accelerators for faster, lower-risk SAP transformations."
       />
 
-      <section className="py-24 bg-charcoal">
+      <section className="py-24 bg-cream">
         <div className="max-w-7xl mx-auto px-6">
           <motion.div
             className="grid md:grid-cols-2 lg:grid-cols-3 gap-6"
@@ -53,9 +53,9 @@ const Industries = () => {
                 key={ind.title}
                 variants={fadeUp}
                 transition={transition}
-                className="group p-8 rounded-xl border border-[#e8a020]/15 bg-smoke hover:border-[#e8a020]/40 transition"
+                className="group p-8 rounded-xl border border-[#e8a020]/20 bg-paper hover:border-[#e8a020]/45 transition"
               >
-                <h3 className="text-xl font-semibold text-white mb-3 group-hover:text-sunrise transition">
+                <h3 className="text-xl font-semibold text-ink mb-3 group-hover:text-sunrise transition">
                   {ind.title}
                 </h3>
                 <p className="text-sm text-muted leading-relaxed">{ind.desc}</p>

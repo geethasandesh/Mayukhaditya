@@ -16,7 +16,7 @@ const regions = ["Global", "Americas", "EMEA", "APAC", "India"]
 
 const navClass = ({ isActive }) =>
   `text-[15px] font-medium transition-colors ${
-    isActive ? "text-sunrise" : "text-white/90 hover:text-white"
+    isActive ? "text-sunrise" : "text-ink/80 hover:text-ink"
   }`
 
 const contactBtnClass = `inline-flex items-center gap-2 ${btnSunrise} px-5 py-2.5 text-[15px]`
@@ -55,7 +55,7 @@ const Navbar = () => {
   }, [])
 
   return (
-    <header className="fixed top-0 left-0 right-0 z-50 border-b border-white/10 bg-charcoal/95 backdrop-blur-md">
+    <header className="fixed top-0 left-0 right-0 z-50 border-b border-[#e8a020]/20 bg-paper/95 backdrop-blur-md">
       <div className="max-w-[1400px] mx-auto px-5 lg:px-10">
         <div className="relative flex items-center justify-between h-[72px]">
           {/* Logo */}
@@ -89,7 +89,7 @@ const Navbar = () => {
               <button
                 type="button"
                 onClick={() => setGlobalOpen(!globalOpen)}
-                className="flex items-center gap-2 text-white/90 hover:text-white text-[15px] font-medium transition-colors"
+                className="flex items-center gap-2 text-ink/80 hover:text-ink text-[15px] font-medium transition-colors"
                 aria-expanded={globalOpen}
                 aria-haspopup="listbox"
               >
@@ -112,7 +112,7 @@ const Navbar = () => {
                     animate={{ opacity: 1, y: 0 }}
                     exit={{ opacity: 0, y: -6 }}
                     transition={{ duration: 0.15 }}
-                    className="absolute right-0 top-full mt-2 min-w-[140px] py-1 bg-smoke border border-white/10 shadow-xl"
+                    className="absolute right-0 top-full mt-2 min-w-[140px] py-1 bg-paper border border-[#e8a020]/25 shadow-xl"
                     role="listbox"
                   >
                     {regions.map((r) => (
@@ -127,8 +127,8 @@ const Navbar = () => {
                           }}
                           className={`w-full text-left px-4 py-2.5 text-sm transition-colors ${
                             region === r
-                              ? "text-sunrise bg-[#e8a020]/15"
-                              : "text-white/80 hover:text-white hover:bg-white/5"
+                              ? "text-sunrise bg-[#e8a020]/10"
+                              : "text-ink/70 hover:text-ink hover:bg-[#e8a020]/5"
                           }`}
                         >
                           {r}
@@ -149,7 +149,7 @@ const Navbar = () => {
           {/* Mobile menu toggle */}
           <button
             type="button"
-            className="lg:hidden text-white p-2 -mr-2 relative z-10 ml-auto"
+            className="lg:hidden text-ink p-2 -mr-2 relative z-10 ml-auto"
             onClick={() => setOpen(!open)}
             aria-label="Toggle menu"
             aria-expanded={open}
@@ -172,7 +172,7 @@ const Navbar = () => {
             initial={{ opacity: 0, height: 0 }}
             animate={{ opacity: 1, height: "auto" }}
             exit={{ opacity: 0, height: 0 }}
-            className="lg:hidden border-t border-white/10 bg-charcoal overflow-hidden"
+            className="lg:hidden border-t border-[#e8a020]/20 bg-paper overflow-hidden"
           >
             <nav className="px-5 py-5 flex flex-col gap-1" aria-label="Mobile navigation">
               {links.map((link) => (
@@ -180,8 +180,8 @@ const Navbar = () => {
                   key={link.to}
                   to={link.to}
                   className={({ isActive }) =>
-                    `py-3 text-base font-medium border-b border-white/5 ${
-                      isActive ? "text-sunrise" : "text-white/90"
+                    `py-3 text-base font-medium border-b border-[#e8a020]/10 ${
+                      isActive ? "text-sunrise" : "text-ink/80"
                     }`
                   }
                   onClick={() => setOpen(false)}
@@ -190,15 +190,15 @@ const Navbar = () => {
                 </NavLink>
               ))}
 
-              <div className="flex items-center gap-3 py-4 border-b border-white/5">
+              <div className="flex items-center gap-3 py-4 border-b border-[#e8a020]/10">
                 <GlobeIcon />
                 <select
                   value={region}
                   onChange={(e) => setRegion(e.target.value)}
-                  className="bg-transparent text-white/90 text-sm focus:outline-none"
+                  className="bg-transparent text-ink/80 text-sm focus:outline-none"
                 >
                   {regions.map((r) => (
-                    <option key={r} value={r} className="bg-charcoal">
+                    <option key={r} value={r} className="bg-paper text-ink">
                       {r}
                     </option>
                   ))}

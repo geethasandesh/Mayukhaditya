@@ -22,7 +22,7 @@ const points = [
 
 const WhyUs = () => {
   return (
-    <section className="py-24 bg-ink">
+    <section className="py-24 bg-cream">
       <div className="max-w-7xl mx-auto px-6">
         <motion.div
           initial="initial"
@@ -33,7 +33,7 @@ const WhyUs = () => {
           className="text-center mb-16"
         >
           <p className="text-sunrise uppercase tracking-[0.25em] text-sm mb-3">Why Mayukha</p>
-          <h2 className="text-4xl font-bold text-white">Your Trusted SAP Partner</h2>
+          <h2 className="text-4xl font-bold text-ink">Your Trusted SAP Partner</h2>
         </motion.div>
 
         <motion.div
@@ -48,12 +48,12 @@ const WhyUs = () => {
               key={point.title}
               variants={fadeUp}
               transition={transition}
-              className="p-6 rounded-xl border border-[#e8a020]/15 bg-smoke hover:border-[#e8a020]/35 transition group"
+              className="p-6 rounded-xl border border-[#e8a020]/20 bg-paper hover:border-[#e8a020]/40 transition group"
             >
               <div className="w-10 h-10 rounded-lg border border-[#e8a020]/30 flex items-center justify-center text-sunrise mb-4 group-hover:bg-[#e8a020]/10 transition">
                 ◆
               </div>
-              <h3 className="text-lg font-semibold text-white mb-2">{point.title}</h3>
+              <h3 className="text-lg font-semibold text-ink mb-2">{point.title}</h3>
               <p className="text-sm text-muted leading-relaxed">{point.desc}</p>
             </motion.div>
           ))}

@@ -2,14 +2,14 @@ import { Link } from "react-router-dom"
 
 const Footer = () => {
   return (
-    <footer className="border-t border-[#e8a020]/15 bg-charcoal">
+    <footer className="border-t border-[#e8a020]/20 bg-cream">
       <div className="max-w-7xl mx-auto px-6 py-14 grid md:grid-cols-4 gap-10">
         <div className="md:col-span-2">
           <Link to="/" className="flex items-center gap-2 mb-4">
             <span className="w-8 h-8 rounded border border-[#e8a020]/40 flex items-center justify-center text-sunrise font-bold text-sm">
               M
             </span>
-            <span className="text-xl font-bold tracking-widest text-white">MAYUKHA</span>
+            <span className="text-xl font-bold tracking-widest text-ink">MAYUKHA</span>
           </Link>
           <p className="text-muted text-sm max-w-md leading-relaxed">
             Enterprise SAP solutions partner specializing in S/4HANA transformation,
@@ -40,7 +40,7 @@ const Footer = () => {
         </div>
       </div>
 
-      <div className="border-t border-[#e8a020]/10 py-6 text-center text-sm text-muted">
+      <div className="border-t border-[#e8a020]/15 py-6 text-center text-sm text-muted">
         © {new Date().getFullYear()} Mayukha SAP Solutions. All rights reserved.
       </div>
     </footer>

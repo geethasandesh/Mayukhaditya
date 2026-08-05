@@ -49,7 +49,7 @@ const Services = ({ limit, showLink = true }) => {
   const items = limit ? sapServices.slice(0, limit) : sapServices
 
   return (
-    <section className="py-24 bg-charcoal" id="services">
+    <section className="py-24 bg-paper" id="services">
       <div className="max-w-7xl mx-auto px-6">
         <motion.div
           initial="initial"
@@ -60,7 +60,7 @@ const Services = ({ limit, showLink = true }) => {
           className="text-center mb-16"
         >
           <p className="text-sunrise uppercase tracking-[0.25em] text-sm mb-3">SAP Capabilities</p>
-          <h2 className="text-4xl font-bold text-white mb-4">Our SAP Services</h2>
+          <h2 className="text-4xl font-bold text-ink mb-4">Our SAP Services</h2>
           <p className="text-muted max-w-2xl mx-auto">
             Full-spectrum SAP consulting — from strategy and implementation to managed operations.
           </p>
@@ -78,10 +78,10 @@ const Services = ({ limit, showLink = true }) => {
               key={service.title}
               variants={fadeUp}
               transition={transition}
-              className="group p-6 rounded-xl border border-[#e8a020]/15 bg-smoke hover:border-[#e8a020]/40 hover:-translate-y-1 transition-all duration-300"
+              className="group p-6 rounded-xl border border-[#e8a020]/20 bg-cream hover:border-[#e8a020]/45 hover:-translate-y-1 transition-all duration-300"
             >
-              <span className="text-sunrise/60 text-sm font-mono">{service.icon}</span>
-              <h3 className="text-lg font-semibold text-white mt-3 mb-2 group-hover:text-sunrise transition">
+              <span className="text-sunrise/70 text-sm font-mono">{service.icon}</span>
+              <h3 className="text-lg font-semibold text-ink mt-3 mb-2 group-hover:text-sunrise transition">
                 {service.title}
               </h3>
               <p className="text-sm text-muted leading-relaxed">{service.desc}</p>

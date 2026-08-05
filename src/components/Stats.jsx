@@ -12,7 +12,7 @@ const stats = [
 
 const Stats = () => {
   return (
-    <section className={`py-20 lg:py-28 border-y ${borderSunrise} bg-charcoal`}>
+    <section className={`py-20 lg:py-28 border-y ${borderSunrise} bg-cream`}>
       <div className="max-w-7xl mx-auto px-6 lg:px-10 flex flex-col gap-14 lg:gap-16">
         {/* Row 1: heading left, paragraph right */}
         <div className="grid md:grid-cols-2 gap-8 lg:gap-16 items-start">
@@ -22,7 +22,7 @@ const Stats = () => {
             viewport={viewport}
             variants={fadeUp}
             transition={transition}
-            className={`text-3xl md:text-4xl lg:text-5xl font-sans leading-tight text-white`}
+            className={`text-3xl md:text-4xl lg:text-5xl font-sans leading-tight text-ink`}
           >
             Innovation begins here
           </motion.h2>
@@ -56,7 +56,7 @@ const Stats = () => {
               key={stat.label}
               variants={fadeUp}
               transition={transition}
-              className={`text-center p-6 rounded-xl border ${borderSunrise} bg-smoke/50`}
+              className={`text-center p-6 rounded-xl border ${borderSunrise} bg-paper`}
             >
               <p className={`text-3xl md:text-4xl lg:text-5xl font-bold ${textSunrise}`}>
                 <CountUp

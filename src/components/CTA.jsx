@@ -8,18 +8,18 @@ const CTA = ({
   subtitle = "Partner with Mayukha for implementation, migration, and managed SAP excellence.",
 }) => {
   return (
-    <section className="py-24 px-6">
+    <section className="py-24 px-6 bg-paper">
       <motion.div
         initial="initial"
         whileInView="animate"
         viewport={viewport}
         variants={fadeUp}
         transition={transition}
-        className={`max-w-5xl mx-auto rounded-2xl border ${borderSunrise} bg-gradient-to-br from-smoke to-charcoal p-10 md:p-14 text-center relative overflow-hidden`}
+        className={`max-w-5xl mx-auto rounded-2xl border ${borderSunrise} bg-gradient-to-br from-cream to-paper p-10 md:p-14 text-center relative overflow-hidden`}
       >
-        <div className="absolute inset-0 bg-[radial-gradient(circle_at_center,rgba(232,160,32,0.1),transparent_70%)]" />
+        <div className="absolute inset-0 bg-[radial-gradient(circle_at_center,rgba(232,160,32,0.08),transparent_70%)]" />
         <div className="relative">
-          <h2 className="text-3xl md:text-4xl font-bold text-white mb-4">{title}</h2>
+          <h2 className="text-3xl md:text-4xl font-bold text-ink mb-4">{title}</h2>
           <p className="text-muted mb-8 max-w-xl mx-auto">{subtitle}</p>
           <div className="flex flex-wrap gap-4 justify-center">
             <Link to="/contact" className={`${btnSunrise} px-8 py-3`}>

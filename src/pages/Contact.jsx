@@ -25,7 +25,7 @@ const Contact = () => {
         subtitle="Tell us about your SAP landscape, timeline, and goals. Our consultants will respond within one business day."
       />
 
-      <section className="py-24 bg-ink">
+      <section className="py-24 bg-paper">
         <div className="max-w-7xl mx-auto px-6 grid lg:grid-cols-5 gap-16">
           <motion.div
             className="lg:col-span-2 space-y-8"
@@ -35,7 +35,7 @@ const Contact = () => {
             viewport={viewport}
           >
             <motion.div variants={fadeUp} transition={transition}>
-              <h2 className="text-2xl font-bold text-white mb-4">Get in Touch</h2>
+              <h2 className="text-2xl font-bold text-ink mb-4">Get in Touch</h2>
               <p className="text-muted text-sm leading-relaxed">
                 Whether you need S/4HANA migration support, SAP AMS, or a full ERP transformation
                 partner — we are ready to help.
@@ -46,11 +46,11 @@ const Contact = () => {
               <motion.div key={item.label} variants={fadeUp} transition={transition}>
                 <p className="text-sunrise text-xs uppercase tracking-wider mb-1">{item.label}</p>
                 {item.href ? (
-                  <a href={item.href} className="text-white hover:text-sunrise transition">
+                  <a href={item.href} className="text-ink hover:text-sunrise transition">
                     {item.value}
                   </a>
                 ) : (
-                  <p className="text-white">{item.value}</p>
+                  <p className="text-ink">{item.value}</p>
                 )}
               </motion.div>
             ))}
@@ -58,7 +58,7 @@ const Contact = () => {
             <motion.div
               variants={fadeUp}
               transition={transition}
-              className="p-5 rounded-xl border border-[#e8a020]/20 bg-smoke"
+              className="p-5 rounded-xl border border-[#e8a020]/25 bg-cream"
             >
               <p className="text-sm text-muted">
                 <span className="text-sunrise font-semibold">SAP Inquiry Types:</span> S/4HANA,
@@ -76,9 +76,9 @@ const Contact = () => {
             transition={transition}
           >
             {submitted ? (
-              <div className="p-10 rounded-2xl border border-[#e8a020]/30 bg-smoke text-center">
+              <div className="p-10 rounded-2xl border border-[#e8a020]/30 bg-cream text-center">
                 <p className="text-3xl text-sunrise mb-3">✓</p>
-                <h3 className="text-xl font-bold text-white mb-2">Message Received</h3>
+                <h3 className="text-xl font-bold text-ink mb-2">Message Received</h3>
                 <p className="text-muted text-sm">
                   Thank you for reaching out. A Mayukha SAP consultant will contact you shortly.
                 </p>
@@ -86,7 +86,7 @@ const Contact = () => {
             ) : (
               <form
                 onSubmit={handleSubmit}
-                className="p-8 md:p-10 rounded-2xl border border-[#e8a020]/20 bg-charcoal space-y-5"
+                className="p-8 md:p-10 rounded-2xl border border-[#e8a020]/25 bg-cream space-y-5"
               >
                 <div className="grid md:grid-cols-2 gap-5">
                   <div>
@@ -94,7 +94,7 @@ const Contact = () => {
                     <input
                       required
                       type="text"
-                      className="w-full px-4 py-3 rounded-lg bg-smoke border border-[#e8a020]/20 text-white placeholder:text-muted focus:outline-none focus:border-[#e8a020] transition"
+                      className="w-full px-4 py-3 rounded-lg bg-paper border border-[#e8a020]/25 text-ink placeholder:text-muted focus:outline-none focus:border-[#e8a020] transition"
                       placeholder="Your name"
                     />
                   </div>
@@ -103,7 +103,7 @@ const Contact = () => {
                     <input
                       required
                       type="text"
-                      className="w-full px-4 py-3 rounded-lg bg-smoke border border-[#e8a020]/20 text-white placeholder:text-muted focus:outline-none focus:border-[#e8a020] transition"
+                      className="w-full px-4 py-3 rounded-lg bg-paper border border-[#e8a020]/25 text-ink placeholder:text-muted focus:outline-none focus:border-[#e8a020] transition"
                       placeholder="Company name"
                     />
                   </div>
@@ -115,13 +115,13 @@ const Contact = () => {
                     <input
                       required
                       type="email"
-                      className="w-full px-4 py-3 rounded-lg bg-smoke border border-[#e8a020]/20 text-white placeholder:text-muted focus:outline-none focus:border-[#e8a020] transition"
+                      className="w-full px-4 py-3 rounded-lg bg-paper border border-[#e8a020]/25 text-ink placeholder:text-muted focus:outline-none focus:border-[#e8a020] transition"
                       placeholder="you@company.com"
                     />
                   </div>
                   <div>
                     <label className="block text-xs text-sunrise uppercase tracking-wider mb-2">SAP Interest</label>
-                    <select className="w-full px-4 py-3 rounded-lg bg-smoke border border-[#e8a020]/20 text-white focus:outline-none focus:border-[#e8a020] transition">
+                    <select className="w-full px-4 py-3 rounded-lg bg-paper border border-[#e8a020]/25 text-ink focus:outline-none focus:border-[#e8a020] transition">
                       <option>S/4HANA Implementation</option>
                       <option>ECC to S/4 Migration</option>
                       <option>SAP BTP & Integration</option>
@@ -137,7 +137,7 @@ const Contact = () => {
                   <textarea
                     required
                     rows={5}
-                    className="w-full px-4 py-3 rounded-lg bg-smoke border border-[#e8a020]/20 text-white placeholder:text-muted focus:outline-none focus:border-[#e8a020] transition resize-none"
+                    className="w-full px-4 py-3 rounded-lg bg-paper border border-[#e8a020]/25 text-ink placeholder:text-muted focus:outline-none focus:border-[#e8a020] transition resize-none"
                     placeholder="Describe your SAP project or support needs..."
                   />
                 </div>

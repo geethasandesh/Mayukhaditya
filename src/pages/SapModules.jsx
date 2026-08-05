@@ -25,7 +25,7 @@ const SapModules = () => {
         subtitle="Certified consultants for every core SAP module — from finance and logistics to HR and warehouse management."
       />
 
-      <section className="py-24 bg-ink">
+      <section className="py-24 bg-paper">
         <div className="max-w-7xl mx-auto px-6">
           <motion.div
             className="grid md:grid-cols-2 gap-6"
@@ -39,14 +39,14 @@ const SapModules = () => {
                 key={mod.code}
                 variants={fadeUp}
                 transition={transition}
-                className="p-6 rounded-xl border border-[#e8a020]/15 bg-smoke hover:border-[#e8a020]/35 transition"
+                className="p-6 rounded-xl border border-[#e8a020]/20 bg-cream hover:border-[#e8a020]/40 transition"
               >
                 <div className="flex items-start gap-4">
                   <span className="shrink-0 px-3 py-1 text-xs font-bold text-ink bg-sunrise rounded">
                     {mod.code}
                   </span>
                   <div>
-                    <h3 className="text-lg font-semibold text-white mb-2">{mod.name}</h3>
+                    <h3 className="text-lg font-semibold text-ink mb-2">{mod.name}</h3>
                     <p className="text-sm text-muted leading-relaxed">{mod.desc}</p>
                   </div>
                 </div>
