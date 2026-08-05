@@ -4,26 +4,74 @@ import Services from "../components/Services"
 import CTA from "../components/CTA"
 import { fadeUp, staggerContainer, transition, viewport } from "../utils/motion"
 
-const process = [
-  { step: "01", title: "Discover", desc: "Assess current SAP landscape, business goals, and transformation readiness." },
-  { step: "02", title: "Design", desc: "Solution architecture, fit-gap analysis, and SAP Activate workstream planning." },
-  { step: "03", title: "Build", desc: "Configuration, development, data migration, and integrated testing cycles." },
-  { step: "04", title: "Deploy", desc: "Cutover execution, go-live support, hypercare, and knowledge transfer." },
-  { step: "05", title: "Operate", desc: "AMS, continuous improvement, and innovation on SAP BTP and analytics." },
+const serviceCategories = [
+  {
+    title: "SAP Consulting",
+    items: [
+      "SAP S/4HANA Supply Chain",
+      "SAP Extended Warehouse Management (Basic & Advanced)",
+      "SAP Materials Management",
+      "SAP Yard Logistics",
+      "SAP Warehouse Billing",
+      "SAP EWM RF Framework",
+      "SAP Fiori Applications",
+    ],
+  },
+  {
+    title: "Warehouse Automation",
+    items: [
+      "Conveyor Integration",
+      "Warehouse Control System (WCS)",
+      "Material Flow System (MFS)",
+      "RFID Integration",
+      "Barcode Solutions",
+      "PLC Integration",
+      "Pick-to-Light / Put-to-Light",
+      "Automated Label Printing",
+    ],
+  },
+  {
+    title: "SAP Technical Services",
+    items: [
+      "ABAP on HANA",
+      "CDS Views",
+      "RAP Development",
+      "OData Services",
+      "Adobe Forms & Smart Forms",
+      "Interfaces (IDoc, REST, SOAP, RFC)",
+      "Enhancements (BAdI, User Exits)",
+      "Performance Optimization",
+    ],
+  },
+  {
+    title: "Managed Services",
+    items: [
+      "AMS Support",
+      "Application Monitoring",
+      "Incident Resolution",
+      "Performance Tuning",
+      "Production Support",
+      "Release Management",
+      "Upgrade Support",
+    ],
+  },
 ]
 
-const modules = [
-  "SAP FI/CO", "SAP MM", "SAP SD", "SAP PP", "SAP QM",
-  "SAP PM", "SAP HR/HCM", "SAP WM/EWM", "SAP PS", "SAP TM",
+const process = [
+  { step: "01", title: "Assess", desc: "Business process assessment of warehouse and supply chain operations." },
+  { step: "02", title: "Design", desc: "Solution design and blueprint preparation aligned to business goals." },
+  { step: "03", title: "Build", desc: "Configuration, development, and system integration across SAP and automation." },
+  { step: "04", title: "Validate", desc: "User acceptance testing and training for operational readiness." },
+  { step: "05", title: "Run", desc: "Go-live support, hypercare, and ongoing managed support." },
 ]
 
 const ServicesPage = () => {
   return (
     <motion.div initial={{ opacity: 0 }} animate={{ opacity: 1 }} transition={{ duration: 0.4 }}>
       <PageHero
-        label="SAP Services"
-        title="Full-Spectrum SAP Consulting"
-        subtitle="From greenfield S/4HANA implementations to managed support — Mayukha delivers end-to-end SAP excellence."
+        label="Our Services"
+        title="SAP Digital Supply Chain Services"
+        subtitle="Consulting, warehouse automation, technical development, and managed services — delivered end to end."
       />
 
       <Services showLink={false} />
@@ -38,27 +86,33 @@ const ServicesPage = () => {
             transition={transition}
             className="text-center mb-14"
           >
-            <p className="text-sunrise uppercase tracking-[0.25em] text-sm mb-3">Methodology</p>
-            <h2 className="text-3xl font-bold text-ink">SAP Activate Delivery Process</h2>
+            <p className="text-sunrise uppercase tracking-[0.25em] text-sm mb-3">Service Catalog</p>
+            <h2 className="text-3xl font-bold text-ink">What We Deliver</h2>
           </motion.div>
 
           <motion.div
-            className="grid md:grid-cols-5 gap-4"
+            className="grid md:grid-cols-2 gap-6"
             variants={staggerContainer}
             initial="initial"
             whileInView="animate"
             viewport={viewport}
           >
-            {process.map((item) => (
+            {serviceCategories.map((cat) => (
               <motion.div
-                key={item.step}
+                key={cat.title}
                 variants={fadeUp}
                 transition={transition}
-                className="relative p-5 rounded-xl border border-[#e8a020]/20 bg-paper text-center"
+                className="p-8 rounded-xl border border-[#e8a020]/20 bg-paper"
               >
-                <span className="text-2xl font-bold text-sunrise">{item.step}</span>
-                <h3 className="text-ink font-semibold mt-2 mb-2">{item.title}</h3>
-                <p className="text-xs text-muted leading-relaxed">{item.desc}</p>
+                <h3 className="text-xl font-semibold text-sunrise mb-5">{cat.title}</h3>
+                <ul className="space-y-2.5">
+                  {cat.items.map((item) => (
+                    <li key={item} className="flex gap-2 text-sm text-muted">
+                      <span className="text-sunrise shrink-0">✓</span>
+                      {item}
+                    </li>
+                  ))}
+                </ul>
               </motion.div>
             ))}
           </motion.div>
@@ -73,28 +127,30 @@ const ServicesPage = () => {
             viewport={viewport}
             variants={fadeUp}
             transition={transition}
-            className="text-center mb-12"
+            className="text-center mb-14"
           >
-            <p className="text-sunrise uppercase tracking-[0.25em] text-sm mb-3">Functional Coverage</p>
-            <h2 className="text-3xl font-bold text-ink">SAP Module Expertise</h2>
+            <p className="text-sunrise uppercase tracking-[0.25em] text-sm mb-3">Methodology</p>
+            <h2 className="text-3xl font-bold text-ink">Project Delivery Approach</h2>
           </motion.div>
 
           <motion.div
-            className="flex flex-wrap justify-center gap-3"
+            className="grid md:grid-cols-5 gap-4"
             variants={staggerContainer}
             initial="initial"
             whileInView="animate"
             viewport={viewport}
           >
-            {modules.map((mod) => (
-              <motion.span
-                key={mod}
+            {process.map((item) => (
+              <motion.div
+                key={item.step}
                 variants={fadeUp}
                 transition={transition}
-                className="px-4 py-2 rounded-full border border-[#e8a020]/30 bg-cream text-sm text-sunrise"
+                className="relative p-5 rounded-xl border border-[#e8a020]/20 bg-cream text-center"
               >
-                {mod}
-              </motion.span>
+                <span className="text-2xl font-bold text-sunrise">{item.step}</span>
+                <h3 className="text-ink font-semibold mt-2 mb-2">{item.title}</h3>
+                <p className="text-xs text-muted leading-relaxed">{item.desc}</p>
+              </motion.div>
             ))}
           </motion.div>
         </div>

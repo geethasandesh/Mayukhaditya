@@ -3,20 +3,36 @@ import { fadeUp, staggerContainer, transition, viewport } from "../utils/motion"
 
 const points = [
   {
-    title: "SAP-Certified Consultants",
-    desc: "Functional and technical experts across FI/CO, MM, SD, PP, HR, and BASIS.",
+    title: "Experienced SAP Supply Chain Consultants",
+    desc: "Deep functional expertise paired with strong technical capability across EWM and logistics.",
   },
   {
-    title: "End-to-End Delivery",
-    desc: "From discovery and blueprint to go-live, hypercare, and AMS support.",
+    title: "End-to-End Project Delivery",
+    desc: "From process assessment and blueprint through go-live, hypercare, and managed support.",
   },
   {
-    title: "Industry Best Practices",
-    desc: "Proven methodologies aligned with SAP Activate and clean-core principles.",
+    title: "Warehouse Automation Expertise",
+    desc: "Proven delivery of WCS, conveyor, RFID, PLC, and material flow system integrations.",
   },
   {
-    title: "Global Delivery Model",
-    desc: "Onshore leadership with scalable offshore execution for cost efficiency.",
+    title: "Strong SAP EWM Competency",
+    desc: "Basic and Advanced EWM with RF frameworks, HU management, and production integration.",
+  },
+  {
+    title: "Proven Integration Experience",
+    desc: "Reliable interfaces across IDoc, REST, SOAP, RFC, and real-time automation platforms.",
+  },
+  {
+    title: "Production Support Excellence",
+    desc: "AMS, monitoring, incident resolution, and performance tuning for stable peak operations.",
+  },
+  {
+    title: "Business-Focused Solutions",
+    desc: "Designs that improve efficiency, inventory accuracy, throughput, and automation ROI.",
+  },
+  {
+    title: "Agile Delivery Methodology",
+    desc: "Iterative delivery that keeps stakeholders aligned and accelerates time to value.",
   },
 ]
 
@@ -32,8 +48,8 @@ const WhyUs = () => {
           transition={transition}
           className="text-center mb-16"
         >
-          <p className="text-sunrise uppercase tracking-[0.25em] text-sm mb-3">Why Mayukha</p>
-          <h2 className="text-4xl font-bold text-ink">Your Trusted SAP Partner</h2>
+          <p className="text-sunrise uppercase tracking-[0.25em] text-sm mb-3">Why Choose Us</p>
+          <h2 className="text-4xl font-bold text-ink">Your SAP Supply Chain Partner</h2>
         </motion.div>
 
         <motion.div

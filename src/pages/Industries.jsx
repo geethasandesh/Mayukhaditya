@@ -5,28 +5,40 @@ import { fadeUp, staggerContainer, transition, viewport } from "../utils/motion"
 
 const industries = [
   {
+    title: "FMCG",
+    desc: "High-volume distribution and warehouse automation for fast-moving consumer goods networks.",
+  },
+  {
+    title: "Retail",
+    desc: "Omnichannel inventory accuracy, outbound excellence, and scalable warehouse operations.",
+  },
+  {
     title: "Manufacturing",
-    desc: "SAP PP, QM, and PM solutions for discrete and process manufacturing with MES integration.",
-  },
-  {
-    title: "Retail & Consumer",
-    desc: "Omnichannel SAP Retail, demand planning, and S/4HANA Fashion for high-volume distribution.",
-  },
-  {
-    title: "Pharma & Life Sciences",
-    desc: "GxP-compliant SAP deployments with batch traceability, validation, and regulatory reporting.",
-  },
-  {
-    title: "Oil & Gas / Energy",
-    desc: "SAP IS-Oil, joint venture accounting, and asset-intensive maintenance workflows.",
+    desc: "Production supply, line feeding, staging, and finished goods warehouse integration.",
   },
   {
     title: "Automotive",
-    desc: "Just-in-sequence logistics, EDI integration, and supplier collaboration on SAP.",
+    desc: "Just-in-sequence logistics, material flow reliability, and tightly integrated warehouse processes.",
   },
   {
-    title: "Public Sector",
-    desc: "Funds management, grant accounting, and public sector budget control on SAP.",
+    title: "Consumer Goods",
+    desc: "Optimized putaway, picking, and replenishment strategies for consumer product warehouses.",
+  },
+  {
+    title: "Pharmaceutical",
+    desc: "Controlled warehouse processes with accurate inventory, batch visibility, and reliable execution.",
+  },
+  {
+    title: "Chemical",
+    desc: "Specialized handling, storage strategies, and logistics controls for chemical supply chains.",
+  },
+  {
+    title: "Logistics & Distribution",
+    desc: "High-throughput distribution centers with RF, HU management, and outbound optimization.",
+  },
+  {
+    title: "3PL Warehousing",
+    desc: "Multi-client warehouse models, billing enablement, and flexible automation integrations.",
   },
 ]
 
@@ -34,9 +46,9 @@ const Industries = () => {
   return (
     <motion.div initial={{ opacity: 0 }} animate={{ opacity: 1 }} transition={{ duration: 0.4 }}>
       <PageHero
-        label="Industries"
-        title="SAP Solutions Tailored to Your Sector"
-        subtitle="Industry-specific templates, best practices, and accelerators for faster, lower-risk SAP transformations."
+        label="Industries Served"
+        title="Supply Chain Solutions Across Sectors"
+        subtitle="We deliver SAP Digital Supply Chain solutions for manufacturing, FMCG, retail, automotive, pharmaceuticals, chemicals, logistics, and 3PL warehousing."
       />
 
       <section className="py-24 bg-cream">

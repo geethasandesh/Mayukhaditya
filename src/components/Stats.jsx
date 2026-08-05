@@ -4,17 +4,16 @@ import { fadeUp, staggerContainer, transition, viewport } from "../utils/motion"
 import { textSunrise, borderSunrise } from "../utils/gradient"
 
 const stats = [
-  { end: 150, suffix: "+", label: "SAP Projects Delivered" },
-  { end: 12, suffix: "+", label: "Years SAP Expertise" },
-  { end: 98, suffix: "%", label: "Client Retention Rate" },
-  { end: 24, suffix: "/7", label: "Managed SAP Support" },
+  { end: 99, suffix: "%+", label: "Inventory Accuracy Delivered" },
+  { end: 4, suffix: "+", label: "Core Service Practice Areas" },
+  { end: 10, suffix: "+", label: "Industries Served" },
+  { end: 24, suffix: "/7", label: "Production Support Ready" },
 ]
 
 const Stats = () => {
   return (
     <section className={`py-20 lg:py-28 border-y ${borderSunrise} bg-cream`}>
       <div className="max-w-7xl mx-auto px-6 lg:px-10 flex flex-col gap-14 lg:gap-16">
-        {/* Row 1: heading left, paragraph right */}
         <div className="grid md:grid-cols-2 gap-8 lg:gap-16 items-start">
           <motion.h2
             initial="initial"
@@ -22,9 +21,9 @@ const Stats = () => {
             viewport={viewport}
             variants={fadeUp}
             transition={transition}
-            className={`text-3xl md:text-4xl lg:text-5xl font-sans leading-tight text-ink`}
+            className="text-3xl md:text-4xl lg:text-5xl font-sans leading-tight text-ink"
           >
-            Innovation begins here
+            Measurable value across the digital supply chain
           </motion.h2>
 
           <motion.p
@@ -35,15 +34,13 @@ const Stats = () => {
             transition={{ ...transition, delay: 0.08 }}
             className="text-muted leading-relaxed text-base md:text-lg"
           >
-            Accely offers top-tier SAP consulting services using refined methodologies and
-            innovation, thus creating a synergy of the latest technology and vast accumulated
-            experience. Renowned for our technical expertise and rapid return on investment
-            (ROI), we serve small-medium businesses to Fortune 500 Companies. We deliver
-            high-value, end-to-end solutions as an SAP Value Added Reseller (VAR) partner.
+            We deliver scalable, reliable, and business-focused SAP solutions that improve
+            operational efficiency, inventory accuracy, warehouse throughput, and system
+            automation — across manufacturing, FMCG, retail, automotive, pharmaceuticals,
+            and third-party logistics.
           </motion.p>
         </div>
 
-        {/* Row 2: stats in a single row */}
         <motion.div
           className="grid grid-cols-2 lg:grid-cols-4 gap-4 lg:gap-6"
           variants={staggerContainer}

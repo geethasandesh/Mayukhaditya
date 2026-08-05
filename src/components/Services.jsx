@@ -4,44 +4,36 @@ import { fadeUp, staggerContainer, transition, viewport } from "../utils/motion"
 
 export const sapServices = [
   {
-    icon: "01",
-    title: "SAP S/4HANA Implementation",
-    desc: "Greenfield and brownfield migrations with SAP Activate methodology and clean-core architecture.",
+    title: "SAP S/4HANA Supply Chain",
+    desc: "End-to-end supply chain design and delivery on SAP S/4HANA for logistics, inventory, and operations excellence.",
   },
   {
-    icon: "02",
-    title: "ECC to S/4HANA Migration",
-    desc: "Selective data transition, system conversion, and landscape consolidation for legacy ECC estates.",
+    title: "SAP Extended Warehouse Management",
+    desc: "Basic and Advanced EWM — RF frameworks, HU management, putaway, picking, and warehouse billing.",
   },
   {
-    icon: "03",
-    title: "SAP BTP & Integration",
-    desc: "Cloud Platform Integration, API management, and extension development on SAP Business Technology Platform.",
+    title: "Warehouse Automation",
+    desc: "Conveyor, WCS, MFS, RFID, barcode, PLC, pick-to-light, and automated label printing integrations.",
   },
   {
-    icon: "04",
-    title: "SAP Fiori & UX",
-    desc: "Modern role-based UX with Fiori launchpad design, custom apps, and mobile-enabled workflows.",
+    title: "SAP Materials Management",
+    desc: "Procurement, inventory governance, and materials processes tightly aligned with warehouse operations.",
   },
   {
-    icon: "05",
-    title: "SAP Analytics & BW/4HANA",
-    desc: "Embedded analytics, SAC, and data warehouse modernization for real-time enterprise insights.",
+    title: "SAP Yard Logistics & Billing",
+    desc: "Yard logistics and warehouse billing solutions that streamline inbound, outbound, and charge processes.",
   },
   {
-    icon: "06",
-    title: "SAP BASIS & Security",
-    desc: "System administration, HANA tuning, transport management, GRC, and security hardening.",
+    title: "SAP Fiori Applications",
+    desc: "Role-based Fiori experiences that simplify warehouse and supply chain execution for end users.",
   },
   {
-    icon: "07",
-    title: "SAP AMS & Support",
-    desc: "Application management services with SLA-driven incident, change, and enhancement support.",
+    title: "SAP Technical Services",
+    desc: "ABAP on HANA, CDS, RAP, OData, Adobe/Smart Forms, IDoc/REST/SOAP/RFC interfaces, and BAdI enhancements.",
   },
   {
-    icon: "08",
-    title: "RISE with SAP Advisory",
-    desc: "Cloud ERP strategy, subscription modeling, and transformation roadmaps for RISE adoption.",
+    title: "Managed Services & AMS",
+    desc: "Application monitoring, incident resolution, performance tuning, production support, and release management.",
   },
 ]
 
@@ -59,10 +51,10 @@ const Services = ({ limit, showLink = true }) => {
           transition={transition}
           className="text-center mb-16"
         >
-          <p className="text-sunrise uppercase tracking-[0.25em] text-sm mb-3">SAP Capabilities</p>
-          <h2 className="text-4xl font-bold text-ink mb-4">Our SAP Services</h2>
+          <p className="text-sunrise uppercase tracking-[0.25em] text-sm mb-3">Our Services</p>
+          <h2 className="text-4xl font-bold text-ink mb-4">SAP Digital Supply Chain Services</h2>
           <p className="text-muted max-w-2xl mx-auto">
-            Full-spectrum SAP consulting — from strategy and implementation to managed operations.
+            From SAP consulting and warehouse automation to technical development and managed support.
           </p>
         </motion.div>
 
@@ -80,8 +72,7 @@ const Services = ({ limit, showLink = true }) => {
               transition={transition}
               className="group p-6 rounded-xl border border-[#e8a020]/20 bg-cream hover:border-[#e8a020]/45 hover:-translate-y-1 transition-all duration-300"
             >
-              <span className="text-sunrise/70 text-sm font-mono">{service.icon}</span>
-              <h3 className="text-lg font-semibold text-ink mt-3 mb-2 group-hover:text-sunrise transition">
+              <h3 className="text-lg font-semibold text-ink mb-2 group-hover:text-sunrise transition">
                 {service.title}
               </h3>
               <p className="text-sm text-muted leading-relaxed">{service.desc}</p>
@@ -102,7 +93,7 @@ const Services = ({ limit, showLink = true }) => {
               to="/services"
               className="inline-flex border border-[#e8a020]/50 text-sunrise px-8 py-3 rounded-lg font-semibold hover:bg-[#e8a020]/10 transition"
             >
-              View All SAP Services
+              View All Services
             </Link>
           </motion.div>
         )}

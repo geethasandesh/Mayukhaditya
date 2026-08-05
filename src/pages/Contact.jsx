@@ -4,9 +4,9 @@ import PageHero from "../components/PageHero"
 import { fadeUp, staggerContainer, transition, viewport } from "../utils/motion"
 
 const contactInfo = [
-  { label: "Email", value: "contact@mayukha.com", href: "mailto:contact@mayukha.com" },
-  { label: "Phone", value: "+1 (800) 555-0199", href: "tel:+18005550199" },
-  { label: "HQ", value: "Hyderabad, India · Global Delivery", href: null },
+  { label: "Company", value: "Mayukhaditya Private Limited", href: null },
+  { label: "Email", value: "contact@mayukhaditya.com", href: "mailto:contact@mayukhaditya.com" },
+  { label: "Focus", value: "SAP Digital Supply Chain · EWM · Warehouse Automation", href: null },
 ]
 
 const Contact = () => {
@@ -21,8 +21,8 @@ const Contact = () => {
     <motion.div initial={{ opacity: 0 }} animate={{ opacity: 1 }} transition={{ duration: 0.4 }}>
       <PageHero
         label="Contact Us"
-        title="Start Your SAP Transformation"
-        subtitle="Tell us about your SAP landscape, timeline, and goals. Our consultants will respond within one business day."
+        title="Start Your Supply Chain Transformation"
+        subtitle="Tell us about your warehouse, logistics, or SAP landscape. Our consultants will help you identify the right digital supply chain path."
       />
 
       <section className="py-24 bg-paper">
@@ -37,8 +37,8 @@ const Contact = () => {
             <motion.div variants={fadeUp} transition={transition}>
               <h2 className="text-2xl font-bold text-ink mb-4">Get in Touch</h2>
               <p className="text-muted text-sm leading-relaxed">
-                Whether you need S/4HANA migration support, SAP AMS, or a full ERP transformation
-                partner — we are ready to help.
+                Whether you need SAP EWM implementation, warehouse automation, production
+                warehouse integration, or AMS support — we are ready to help.
               </p>
             </motion.div>
 
@@ -61,8 +61,8 @@ const Contact = () => {
               className="p-5 rounded-xl border border-[#e8a020]/25 bg-cream"
             >
               <p className="text-sm text-muted">
-                <span className="text-sunrise font-semibold">SAP Inquiry Types:</span> S/4HANA,
-                ECC Migration, BTP, Fiori, AMS, BASIS, Analytics
+                <span className="text-sunrise font-semibold">Inquiry Types:</span> SAP EWM,
+                Warehouse Automation, S/4HANA Supply Chain, Technical Development, AMS Support
               </p>
             </motion.div>
           </motion.div>
@@ -80,7 +80,7 @@ const Contact = () => {
                 <p className="text-3xl text-sunrise mb-3">✓</p>
                 <h3 className="text-xl font-bold text-ink mb-2">Message Received</h3>
                 <p className="text-muted text-sm">
-                  Thank you for reaching out. A Mayukha SAP consultant will contact you shortly.
+                  Thank you for reaching out. A Mayukhaditya consultant will contact you shortly.
                 </p>
               </div>
             ) : (
@@ -120,13 +120,13 @@ const Contact = () => {
                     />
                   </div>
                   <div>
-                    <label className="block text-xs text-sunrise uppercase tracking-wider mb-2">SAP Interest</label>
+                    <label className="block text-xs text-sunrise uppercase tracking-wider mb-2">Interest</label>
                     <select className="w-full px-4 py-3 rounded-lg bg-paper border border-[#e8a020]/25 text-ink focus:outline-none focus:border-[#e8a020] transition">
-                      <option>S/4HANA Implementation</option>
-                      <option>ECC to S/4 Migration</option>
-                      <option>SAP BTP & Integration</option>
-                      <option>SAP AMS & Support</option>
-                      <option>RISE with SAP Advisory</option>
+                      <option>SAP EWM Implementation</option>
+                      <option>Warehouse Automation</option>
+                      <option>SAP S/4HANA Supply Chain</option>
+                      <option>SAP Technical Services</option>
+                      <option>Managed Services / AMS</option>
                       <option>Other</option>
                     </select>
                   </div>
@@ -138,7 +138,7 @@ const Contact = () => {
                     required
                     rows={5}
                     className="w-full px-4 py-3 rounded-lg bg-paper border border-[#e8a020]/25 text-ink placeholder:text-muted focus:outline-none focus:border-[#e8a020] transition resize-none"
-                    placeholder="Describe your SAP project or support needs..."
+                    placeholder="Describe your warehouse, logistics, or SAP project needs..."
                   />
                 </div>
 

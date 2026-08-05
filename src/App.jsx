@@ -3,7 +3,7 @@ import Layout from "./components/Layout"
 import Home from "./pages/Home"
 import About from "./pages/About"
 import ServicesPage from "./pages/Services"
-import SapModules from "./pages/SapModules"
+import CaseStudies from "./pages/CaseStudies"
 import Industries from "./pages/Industries"
 import Contact from "./pages/Contact"
 
@@ -14,7 +14,7 @@ const App = () => {
         <Route element={<Layout />}>
           <Route path="/" element={<Home />} />
           <Route path="/services" element={<ServicesPage />} />
-          <Route path="/sap-modules" element={<SapModules />} />
+          <Route path="/case-studies" element={<CaseStudies />} />
           <Route path="/industries" element={<Industries />} />
           <Route path="/about" element={<About />} />
           <Route path="/contact" element={<Contact />} />

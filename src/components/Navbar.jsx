@@ -2,24 +2,21 @@ import { useState, useRef, useEffect } from "react"
 import { Link, NavLink } from "react-router-dom"
 import { motion, AnimatePresence } from "framer-motion"
 import logo from "../assets/logobg.png"
-import { btnSunrise } from "../utils/gradient"
 
 const links = [
   { to: "/services", label: "Services" },
-  { to: "/sap-modules", label: "SAP Modules" },
+  { to: "/case-studies", label: "Case Studies" },
   { to: "/industries", label: "Industries" },
   { to: "/about", label: "About" },
   { to: "/contact", label: "Contact" },
 ]
 
-const regions = ["Global", "Americas", "EMEA", "APAC", "India"]
+const regions = ["India", "Dubai"]
 
 const navClass = ({ isActive }) =>
   `text-[15px] font-medium transition-colors ${
     isActive ? "text-sunrise" : "text-ink/80 hover:text-ink"
   }`
-
-const contactBtnClass = `inline-flex items-center gap-2 ${btnSunrise} px-5 py-2.5 text-[15px]`
 
 const GlobeIcon = () => (
   <svg className="w-[18px] h-[18px]" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden>
@@ -41,7 +38,7 @@ const GlobeIcon = () => (
 const Navbar = () => {
   const [open, setOpen] = useState(false)
   const [globalOpen, setGlobalOpen] = useState(false)
-  const [region, setRegion] = useState("Global")
+  const [region, setRegion] = useState("India")
   const globalRef = useRef(null)
 
   useEffect(() => {
@@ -63,7 +60,7 @@ const Navbar = () => {
             <img
               src={logo}
               alt="Mayukhaditya"
-              className="h-9 md:h-11 w-auto object-contain"
+              className="h-[2.7rem] md:h-[3.3rem] w-auto object-contain"
             />
           </Link>
 
@@ -83,8 +80,8 @@ const Navbar = () => {
             </ul>
           </nav>
 
-          {/* Desktop utilities + CTA */}
-          <div className="hidden lg:flex items-center gap-6 shrink-0 relative z-10">
+          {/* Desktop region selector */}
+          <div className="hidden lg:flex items-center shrink-0 relative z-10">
             <div className="relative" ref={globalRef}>
               <button
                 type="button"
@@ -139,11 +136,6 @@ const Navbar = () => {
                 )}
               </AnimatePresence>
             </div>
-
-            <Link to="/contact" className={contactBtnClass}>
-              Contact us
-              <span aria-hidden>→</span>
-            </Link>
           </div>
 
           {/* Mobile menu toggle */}
@@ -190,7 +182,7 @@ const Navbar = () => {
                 </NavLink>
               ))}
 
-              <div className="flex items-center gap-3 py-4 border-b border-[#e8a020]/10">
+              <div className="flex items-center gap-3 py-4">
                 <GlobeIcon />
                 <select
                   value={region}
@@ -204,15 +196,6 @@ const Navbar = () => {
                   ))}
                 </select>
               </div>
-
-              <Link
-                to="/contact"
-                onClick={() => setOpen(false)}
-                className={`mt-3 w-full justify-center py-3 ${contactBtnClass}`}
-              >
-                Contact us
-                <span aria-hidden>→</span>
-              </Link>
             </nav>
           </motion.div>
         )}

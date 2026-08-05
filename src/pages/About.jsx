@@ -3,27 +3,40 @@ import PageHero from "../components/PageHero"
 import CTA from "../components/CTA"
 import { fadeUp, staggerContainer, transition, viewport } from "../utils/motion"
 
-const values = [
-  { title: "Excellence", desc: "Rigorous SAP standards on every implementation, migration, and support engagement." },
-  { title: "Integrity", desc: "Transparent delivery, honest timelines, and trusted advisor relationships with clients." },
-  { title: "Innovation", desc: "Embracing SAP BTP, AI-enabled processes, and clean-core extensibility." },
-  { title: "Partnership", desc: "Collaborative co-delivery models aligned with your internal IT and business teams." },
+const methodology = [
+  "Business Process Assessment",
+  "Solution Design",
+  "Blueprint Preparation",
+  "Configuration",
+  "Development",
+  "System Integration",
+  "User Acceptance Testing",
+  "Training",
+  "Go-Live Support",
+  "Hypercare",
+  "Managed Support",
 ]
 
-const milestones = [
-  { year: "2012", event: "Founded as a boutique SAP consulting firm." },
-  { year: "2016", event: "Expanded S/4HANA practice and first Fortune 500 go-live." },
-  { year: "2020", event: "Launched global delivery center and SAP BTP practice." },
-  { year: "2024", event: "150+ SAP projects across manufacturing, retail, and pharma." },
+const technologies = [
+  "SAP S/4HANA",
+  "SAP EWM",
+  "SAP BTP",
+  "SAP Fiori",
+  "SAP ABAP on HANA",
+  "SAP Integration Suite",
+  "REST APIs",
+  "IDocs",
+  "RFID",
+  "PLC/WCS Integration",
 ]
 
 const About = () => {
   return (
     <motion.div initial={{ opacity: 0 }} animate={{ opacity: 1 }} transition={{ duration: 0.4 }}>
       <PageHero
-        label="About Mayukha"
-        title="Driving SAP Transformation Worldwide"
-        subtitle="We are a dedicated SAP solutions company helping enterprises modernize ERP, embrace the cloud, and unlock operational excellence."
+        label="About Mayukhaditya"
+        title="Transforming Supply Chains with SAP Digital Solutions"
+        subtitle="Mayukhaditya Private Limited is a technology consulting company specializing in SAP Digital Supply Chain solutions."
       />
 
       <section className="py-24 bg-paper">
@@ -35,18 +48,19 @@ const About = () => {
             variants={fadeUp}
             transition={transition}
           >
-            <p className="text-sunrise uppercase tracking-[0.25em] text-sm mb-4">Our Mission</p>
+            <p className="text-sunrise uppercase tracking-[0.25em] text-sm mb-4">About Us</p>
             <h2 className="text-3xl font-bold text-ink mb-6">
-              Empowering enterprises through intelligent SAP solutions
+              Business-focused SAP solutions for modern warehouses and logistics
             </h2>
             <p className="text-muted leading-relaxed mb-4">
-              Mayukha was built on a single belief: every enterprise deserves a world-class SAP
-              partner that combines deep functional knowledge with cutting-edge technical delivery.
+              We help organizations optimize warehouse operations, manufacturing logistics,
+              transportation, and inventory management through SAP S/4HANA, SAP EWM, SAP BTP,
+              warehouse automation, and custom SAP developments.
             </p>
             <p className="text-muted leading-relaxed">
-              From SAP ECC landscapes to greenfield S/4HANA on RISE with SAP, we guide clients
-              through complex transformations with proven Activate methodologies, certified consultants,
-              and a relentless focus on business outcomes.
+              Our team combines deep functional expertise with strong technical capabilities to
+              deliver scalable, reliable solutions across manufacturing, FMCG, retail, automotive,
+              pharmaceuticals, and third-party logistics industries.
             </p>
           </motion.div>
 
@@ -57,13 +71,18 @@ const About = () => {
             transition={{ duration: 0.6 }}
             className="p-8 rounded-2xl border border-[#e8a020]/25 bg-gradient-to-br from-cream to-paper"
           >
-            <p className="text-5xl font-bold text-sunrise mb-2">12+</p>
-            <p className="text-ink font-semibold text-lg mb-4">Years of SAP Excellence</p>
+            <p className="text-sunrise uppercase tracking-[0.2em] text-xs font-semibold mb-3">
+              Our Objective
+            </p>
+            <p className="text-ink font-semibold text-lg mb-4 leading-snug">
+              Deliver measurable business value by improving operational efficiency, inventory
+              accuracy, warehouse throughput, and system automation.
+            </p>
             <ul className="space-y-3 text-sm text-muted">
-              <li className="flex gap-2"><span className="text-sunrise">✓</span> SAP Gold Partner ecosystem alignment</li>
-              <li className="flex gap-2"><span className="text-sunrise">✓</span> Cross-industry domain expertise</li>
-              <li className="flex gap-2"><span className="text-sunrise">✓</span> Certified S/4HANA &amp; BTP architects</li>
-              <li className="flex gap-2"><span className="text-sunrise">✓</span> ISO-aligned delivery governance</li>
+              <li className="flex gap-2"><span className="text-sunrise">✓</span> SAP Digital Supply Chain specialization</li>
+              <li className="flex gap-2"><span className="text-sunrise">✓</span> Strong SAP EWM &amp; automation competency</li>
+              <li className="flex gap-2"><span className="text-sunrise">✓</span> End-to-end project and AMS delivery</li>
+              <li className="flex gap-2"><span className="text-sunrise">✓</span> Industry-proven integration experience</li>
             </ul>
           </motion.div>
         </div>
@@ -79,26 +98,28 @@ const About = () => {
             transition={transition}
             className="text-center mb-14"
           >
-            <p className="text-sunrise uppercase tracking-[0.25em] text-sm mb-3">Our Values</p>
-            <h2 className="text-3xl font-bold text-ink">What Defines Us</h2>
+            <p className="text-sunrise uppercase tracking-[0.25em] text-sm mb-3">Methodology</p>
+            <h2 className="text-3xl font-bold text-ink">How We Deliver</h2>
           </motion.div>
 
           <motion.div
-            className="grid md:grid-cols-2 lg:grid-cols-4 gap-6"
+            className="grid sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-4"
             variants={staggerContainer}
             initial="initial"
             whileInView="animate"
             viewport={viewport}
           >
-            {values.map((v) => (
+            {methodology.map((step, i) => (
               <motion.div
-                key={v.title}
+                key={step}
                 variants={fadeUp}
                 transition={transition}
-                className="p-6 rounded-xl border border-[#e8a020]/20 bg-paper"
+                className="flex items-start gap-3 p-4 rounded-xl border border-[#e8a020]/20 bg-paper"
               >
-                <h3 className="text-sunrise font-semibold text-lg mb-2">{v.title}</h3>
-                <p className="text-sm text-muted leading-relaxed">{v.desc}</p>
+                <span className="text-sunrise font-bold text-sm shrink-0">
+                  {String(i + 1).padStart(2, "0")}
+                </span>
+                <p className="text-sm text-ink font-medium">{step}</p>
               </motion.div>
             ))}
           </motion.div>
@@ -106,7 +127,7 @@ const About = () => {
       </section>
 
       <section className="py-24 bg-paper">
-        <div className="max-w-3xl mx-auto px-6">
+        <div className="max-w-7xl mx-auto px-6">
           <motion.div
             initial="initial"
             whileInView="animate"
@@ -115,26 +136,52 @@ const About = () => {
             transition={transition}
             className="text-center mb-12"
           >
-            <p className="text-sunrise uppercase tracking-[0.25em] text-sm mb-3">Our Journey</p>
-            <h2 className="text-3xl font-bold text-ink">Company Milestones</h2>
+            <p className="text-sunrise uppercase tracking-[0.25em] text-sm mb-3">Technology Expertise</p>
+            <h2 className="text-3xl font-bold text-ink">Platforms &amp; Capabilities</h2>
           </motion.div>
 
-          <div className="space-y-0">
-            {milestones.map((m, i) => (
-              <motion.div
-                key={m.year}
-                initial={{ opacity: 0, x: -20 }}
-                whileInView={{ opacity: 1, x: 0 }}
-                viewport={viewport}
-                transition={{ ...transition, delay: i * 0.1 }}
-                className="flex gap-8 py-6 border-l-2 border-[#e8a020]/30 pl-8 relative"
+          <motion.div
+            className="flex flex-wrap justify-center gap-3"
+            variants={staggerContainer}
+            initial="initial"
+            whileInView="animate"
+            viewport={viewport}
+          >
+            {technologies.map((tech) => (
+              <motion.span
+                key={tech}
+                variants={fadeUp}
+                transition={transition}
+                className="px-4 py-2 rounded-full border border-[#e8a020]/30 bg-cream text-sm text-sunrise"
               >
-                <span className="absolute -left-[9px] top-8 w-4 h-4 rounded-full bg-gold" />
-                <span className="text-sunrise font-bold text-lg w-16 shrink-0">{m.year}</span>
-                <p className="text-muted">{m.event}</p>
-              </motion.div>
+                {tech}
+              </motion.span>
             ))}
-          </div>
+          </motion.div>
+        </div>
+      </section>
+
+      <section className="py-24 bg-cream border-t border-[#e8a020]/15">
+        <div className="max-w-3xl mx-auto px-6 text-center">
+          <motion.div
+            initial="initial"
+            whileInView="animate"
+            viewport={viewport}
+            variants={fadeUp}
+            transition={transition}
+          >
+            <p className="text-sunrise uppercase tracking-[0.25em] text-sm mb-3">Our Commitment</p>
+            <h2 className="text-3xl font-bold text-ink mb-6">Quality, Innovation &amp; Long-Term Value</h2>
+            <p className="text-muted leading-relaxed mb-4">
+              We partner with clients to deliver intelligent, scalable, and future-ready SAP supply
+              chain solutions that improve operational performance, enable warehouse automation,
+              and support sustainable business growth.
+            </p>
+            <p className="text-muted leading-relaxed">
+              Mayukhaditya Private Limited is committed to delivering quality, innovation, and
+              long-term value through technology-driven transformation.
+            </p>
+          </motion.div>
         </div>
       </section>
 

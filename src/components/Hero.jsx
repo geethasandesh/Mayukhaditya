@@ -7,10 +7,10 @@ import { btnSunrise } from "../utils/gradient"
 const contactBtnClass = `inline-flex items-center gap-2 ${btnSunrise} px-6 py-2 text-sm`
 
 const solutions = [
-  { title: "RISE with SAP" },
-  { title: "GROW with SAP" },
-  { title: "SAP SuccessFactors" },
-  { title: "SAP BTP" },
+  { title: "SAP EWM", to: "/services" },
+  { title: "Warehouse Automation", to: "/services" },
+  { title: "S/4HANA Supply Chain", to: "/services" },
+  { title: "SAP BTP & Integration", to: "/services" },
 ]
 
 const GridIcon = () => (
@@ -63,7 +63,6 @@ const Hero = () => {
       <NetworkOverlay />
 
       <div className="relative z-10 flex flex-col min-h-screen pt-[72px]">
-        {/* Main hero copy */}
         <motion.div
           className="flex-1 flex flex-col items-center justify-center text-center px-6 py-16 lg:py-24"
           variants={staggerContainer}
@@ -75,23 +74,24 @@ const Hero = () => {
             transition={transition}
             className="text-[11px] md:text-xs uppercase tracking-[0.35em] text-white font-medium mb-6 drop-shadow-md"
           >
-            We are a Premier SAP Gold Partner
+            Mayukhaditya Private Limited
           </motion.p>
 
           <motion.h1
             variants={fadeUp}
             transition={{ ...transition, delay: 0.06 }}
-            className="text-1xl sm:text-2xl md:text-3xl lg:text-4xl xl:text-5xl font-sanss text-white leading-tight mb-6 whitespace-nowrap drop-shadow-lg"
+            className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-sans text-white leading-tight mb-6 max-w-4xl drop-shadow-lg"
           >
-            Globally Trusted SAP Consulting Company
+            Transforming Supply Chains with SAP Digital Solutions
           </motion.h1>
 
           <motion.p
             variants={fadeUp}
             transition={{ ...transition, delay: 0.12 }}
-            className="text-sm sm:text-base md:text-lg text-white leading-relaxed mb-10 drop-shadow-md whitespace-nowrap"
+            className="text-sm sm:text-base md:text-lg text-white/90 leading-relaxed mb-10 max-w-2xl drop-shadow-md"
           >
-            Empowering businesses to transform digitally with cloud-based solutions, where vision meets technology.
+            Optimize warehouse operations, manufacturing logistics, transportation, and inventory
+            management with SAP S/4HANA, EWM, BTP, and warehouse automation.
           </motion.p>
 
           <motion.div variants={fadeUp} transition={{ ...transition, delay: 0.18 }}>
@@ -102,7 +102,6 @@ const Hero = () => {
           </motion.div>
         </motion.div>
 
-        {/* Recommended solutions */}
         <motion.div
           className="px-5 lg:px-12 pb-10 lg:pb-14"
           initial={{ opacity: 0, y: 24 }}
@@ -110,14 +109,14 @@ const Hero = () => {
           transition={{ duration: 0.6, delay: 0.35 }}
         >
           <p className="text-center text-[11px] uppercase tracking-[0.35em] text-white/70 font-medium mb-6">
-            Recommended For You
+            Our Core Capabilities
           </p>
 
           <div className="max-w-6xl mx-auto grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 border border-white/15 bg-white/5 backdrop-blur-md divide-y sm:divide-y-0 sm:divide-x divide-white/15">
             {solutions.map((item) => (
               <Link
                 key={item.title}
-                to="/services"
+                to={item.to}
                 className="group relative flex flex-col justify-between min-h-[140px] p-6 hover:bg-white/10 transition-colors"
               >
                 <div>

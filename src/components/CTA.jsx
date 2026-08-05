@@ -4,8 +4,8 @@ import { fadeUp, transition, viewport } from "../utils/motion"
 import { btnSunrise, borderSunrise } from "../utils/gradient"
 
 const CTA = ({
-  title = "Ready to modernize your SAP landscape?",
-  subtitle = "Partner with Mayukha for implementation, migration, and managed SAP excellence.",
+  title = "Ready to transform your digital supply chain?",
+  subtitle = "Partner with Mayukhaditya for SAP EWM, warehouse automation, and managed supply chain excellence.",
 }) => {
   return (
     <section className="py-24 px-6 bg-paper">
@@ -29,7 +29,7 @@ const CTA = ({
               to="/services"
               className="border border-[#e8a020]/50 text-sunrise px-8 py-3 font-semibold hover:bg-[#e8a020]/10 transition"
             >
-              View SAP Services
+              View Our Services
             </Link>
           </div>
         </div>
