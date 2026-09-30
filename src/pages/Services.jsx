@@ -86,7 +86,7 @@ const ServicesPage = () => {
             transition={transition}
             className="text-center mb-14"
           >
-            <p className="text-sunrise uppercase tracking-[0.25em] text-sm mb-3">Service Catalog</p>
+            <p className="text-sunrise uppercase tracking-[0.25em] text-sm mb-3"><b>Service Catalog</b></p>
             <h2 className="text-3xl font-bold text-ink">What We Deliver</h2>
           </motion.div>
 
@@ -129,7 +129,7 @@ const ServicesPage = () => {
             transition={transition}
             className="text-center mb-14"
           >
-            <p className="text-sunrise uppercase tracking-[0.25em] text-sm mb-3">Methodology</p>
+            <p className="text-sunrise uppercase tracking-[0.25em] text-sm mb-3"><b>Methodology</b></p>
             <h2 className="text-3xl font-bold text-ink">Project Delivery Approach</h2>
           </motion.div>
 
@@ -156,7 +156,7 @@ const ServicesPage = () => {
         </div>
       </section>
 
-      <CTA />
+      <CTA showServicesLink={false} />
     </motion.div>
   )
 }

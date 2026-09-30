@@ -48,7 +48,7 @@ const About = () => {
             variants={fadeUp}
             transition={transition}
           >
-            <p className="text-sunrise uppercase tracking-[0.25em] text-sm mb-4">About Us</p>
+            <p className="text-sunrise uppercase tracking-[0.25em] text-sm mb-4"><b>About Us</b></p>
             <h2 className="text-3xl font-bold text-ink mb-6">
               Business-focused SAP solutions for modern warehouses and logistics
             </h2>
@@ -98,7 +98,7 @@ const About = () => {
             transition={transition}
             className="text-center mb-14"
           >
-            <p className="text-sunrise uppercase tracking-[0.25em] text-sm mb-3">Methodology</p>
+            <p className="text-sunrise uppercase tracking-[0.25em] text-sm mb-3"><b>Methodology</b></p>
             <h2 className="text-3xl font-bold text-ink">How We Deliver</h2>
           </motion.div>
 
@@ -136,7 +136,7 @@ const About = () => {
             transition={transition}
             className="text-center mb-12"
           >
-            <p className="text-sunrise uppercase tracking-[0.25em] text-sm mb-3">Technology Expertise</p>
+            <p className="text-sunrise uppercase tracking-[0.25em] text-sm mb-3"><b>Technology Expertise</b></p>
             <h2 className="text-3xl font-bold text-ink">Platforms &amp; Capabilities</h2>
           </motion.div>
 
@@ -170,7 +170,7 @@ const About = () => {
             variants={fadeUp}
             transition={transition}
           >
-            <p className="text-sunrise uppercase tracking-[0.25em] text-sm mb-3">Our Commitment</p>
+            <p className="text-sunrise uppercase tracking-[0.25em] text-sm mb-3"><b>Our Commitment</b></p>
             <h2 className="text-3xl font-bold text-ink mb-6">Quality, Innovation &amp; Long-Term Value</h2>
             <p className="text-muted leading-relaxed mb-4">
               We partner with clients to deliver intelligent, scalable, and future-ready SAP supply

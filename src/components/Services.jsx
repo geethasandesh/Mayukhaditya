@@ -1,4 +1,4 @@
-import { Link } from "react-router-dom"
+import { useNavigate } from "react-router-dom"
 import { motion } from "framer-motion"
 import { fadeUp, staggerContainer, transition, viewport } from "../utils/motion"
 
@@ -39,6 +39,14 @@ export const sapServices = [
 
 const Services = ({ limit, showLink = true }) => {
   const items = limit ? sapServices.slice(0, limit) : sapServices
+  const navigate = useNavigate()
+
+  const handleViewAll = () => {
+    navigate("/services")
+    setTimeout(() => {
+      window.scrollTo(0, 0)
+    }, 50)
+  }
 
   return (
     <section className="py-24 bg-paper" id="services">
@@ -51,7 +59,7 @@ const Services = ({ limit, showLink = true }) => {
           transition={transition}
           className="text-center mb-16"
         >
-          <p className="text-sunrise uppercase tracking-[0.25em] text-sm mb-3">Our Services</p>
+          <p className="text-sunrise uppercase tracking-[0.25em] text-sm mb-3"><b>Our Services</b></p>
           <h2 className="text-4xl font-bold text-ink mb-4">SAP Digital Supply Chain Services</h2>
           <p className="text-muted max-w-2xl mx-auto">
             From SAP consulting and warehouse automation to technical development and managed support.
@@ -89,12 +97,12 @@ const Services = ({ limit, showLink = true }) => {
             transition={transition}
             className="text-center mt-12"
           >
-            <Link
-              to="/services"
-              className="inline-flex border border-[#e8a020]/50 text-sunrise px-8 py-3 rounded-lg font-semibold hover:bg-[#e8a020]/10 transition"
+            <button
+              onClick={handleViewAll}
+              className="inline-flex border border-[#e8a020]/50 text-sunrise px-8 py-3 rounded-lg font-semibold hover:bg-[#e8a020]/10 transition cursor-pointer"
             >
               View All Services
-            </Link>
+            </button>
           </motion.div>
         )}
       </div>

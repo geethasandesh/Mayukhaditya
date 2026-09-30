@@ -60,3 +60,29 @@
 @utility border-sunrise {
   border-color: color-mix(in srgb, #e8a020 35%, transparent);
 }
+
+/* Custom Twinkle Animations */
+.animate-twinkle {
+  animation: twinklePulse 1.8s ease-in-out infinite;
+}
+.delay-500 {
+  animation-delay: 500ms;
+}
+.delay-1000 {
+  animation-delay: 1000ms;
+}
+.delay-1500 {
+  animation-delay: 1500ms;
+}
+
+@keyframes twinklePulse {
+  0%, 100% {
+    transform: scale(0) rotate(0deg);
+    opacity: 0;
+  }
+  50% {
+    transform: scale(1.1) rotate(90deg);
+    opacity: 1;
+    filter: drop-shadow(0 0 4px rgba(232, 160, 32, 0.6));
+  }
+}

@@ -112,7 +112,7 @@ const CaseStudies = () => {
               >
                 <div className="border-b border-[#e8a020]/15 px-8 py-6 bg-paper">
                   <p className="text-sunrise text-xs uppercase tracking-[0.25em] mb-2">
-                    Case Study {index + 1}
+                    <b>Case Study {index + 1}</b>
                   </p>
                   <h2 className="text-2xl md:text-3xl font-bold text-ink">{cs.title}</h2>
                 </div>

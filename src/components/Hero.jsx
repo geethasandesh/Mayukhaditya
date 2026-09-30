@@ -2,9 +2,10 @@ import { Link } from "react-router-dom"
 import { motion } from "framer-motion"
 import bgVideo from "../assets/bgvideo.mp4"
 import { fadeUp, staggerContainer, transition } from "../utils/motion"
-import { btnSunrise } from "../utils/gradient"
+import { sunriseGradient } from "../utils/gradient"
+import logo from "../assets/logobg1.png"
 
-const contactBtnClass = `inline-flex items-center gap-2 ${btnSunrise} px-6 py-2 text-sm`
+const contactBtnClass = `inline-flex items-center gap-2 ${sunriseGradient} px-6 py-2 text-sm text-black font-semibold rounded hover:from-gold hover:via-gold hover:to-gold hover:text-black hover:shadow-lg hover:-translate-y-0.5 transition-all duration-300`
 
 const solutions = [
   { title: "SAP EWM", to: "/services" },
@@ -69,13 +70,13 @@ const Hero = () => {
           initial="initial"
           animate="animate"
         >
-          <motion.p
+          <motion.div
             variants={fadeUp}
             transition={transition}
-            className="text-[11px] md:text-xs uppercase tracking-[0.35em] text-white font-medium mb-6 drop-shadow-md"
+            className="mb-6"
           >
-            Mayukhaditya Private Limited
-          </motion.p>
+            <img src={logo} alt="Mayukhaditya" className="h-16 md:h-24 object-contain mx-auto drop-shadow-md" />
+          </motion.div>
 
           <motion.h1
             variants={fadeUp}
@@ -95,9 +96,18 @@ const Hero = () => {
           </motion.p>
 
           <motion.div variants={fadeUp} transition={{ ...transition, delay: 0.18 }}>
-            <Link to="/contact" className={contactBtnClass}>
-              Get started
-              <span aria-hidden>→</span>
+            <Link 
+              to="/contact" 
+              className={`group relative inline-flex items-center justify-center px-6 py-2 text-sm font-semibold text-black rounded overflow-hidden shadow-sm hover:shadow-lg transition-shadow duration-300 ${sunriseGradient}`}
+            >
+              {/* Falling White Curtain Background */}
+              <span className="absolute inset-0 w-full h-full bg-white origin-top scale-y-0 group-hover:scale-y-100 transition-transform duration-400 ease-in-out" aria-hidden="true" />
+              
+              {/* Button Text & Icon (Z-10 keeps it above the curtain) */}
+              <span className="relative z-10 flex items-center gap-2">
+                Get started
+                <span className="group-hover:translate-x-1 transition-transform duration-300" aria-hidden="true">→</span>
+              </span>
             </Link>
           </motion.div>
         </motion.div>
@@ -108,8 +118,8 @@ const Hero = () => {
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.6, delay: 0.35 }}
         >
-          <p className="text-center text-[11px] uppercase tracking-[0.35em] text-white/70 font-medium mb-6">
-            Our Core Capabilities
+          <p className="text-center text-[20px] uppercase tracking-[0.25em] text-white/70 font-medium mb-6">
+            <b>Our Core Capabilities</b>
           </p>
 
           <div className="max-w-6xl mx-auto grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 border border-white/15 bg-white/5 backdrop-blur-md divide-y sm:divide-y-0 sm:divide-x divide-white/15">
@@ -121,7 +131,7 @@ const Hero = () => {
               >
                 <div>
                   <GridIcon />
-                  <p className="mt-5 text-[10px] uppercase tracking-[0.25em] text-white/60 font-medium">
+                  <p className="mt-5 text-[15px] uppercase tracking-[0.25em] text-white/60 font-medium">
                     Solution
                   </p>
                   <h3 className="mt-2 text-lg md:text-xl font-semibold text-white group-hover:text-sunrise transition-colors">

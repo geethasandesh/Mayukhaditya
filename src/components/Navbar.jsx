@@ -8,10 +8,7 @@ const links = [
   { to: "/case-studies", label: "Case Studies" },
   { to: "/industries", label: "Industries" },
   { to: "/about", label: "About" },
-  { to: "/contact", label: "Contact" },
 ]
-
-const regions = ["India", "Dubai"]
 
 const navClass = ({ isActive }) =>
   `text-[15px] font-medium transition-colors ${
@@ -37,30 +34,17 @@ const GlobeIcon = () => (
 
 const Navbar = () => {
   const [open, setOpen] = useState(false)
-  const [globalOpen, setGlobalOpen] = useState(false)
-  const [region, setRegion] = useState("India")
-  const globalRef = useRef(null)
-
-  useEffect(() => {
-    const handleClick = (e) => {
-      if (globalRef.current && !globalRef.current.contains(e.target)) {
-        setGlobalOpen(false)
-      }
-    }
-    document.addEventListener("mousedown", handleClick)
-    return () => document.removeEventListener("mousedown", handleClick)
-  }, [])
 
   return (
     <header className="fixed top-0 left-0 right-0 z-50 border-b border-[#e8a020]/20 bg-paper/95 backdrop-blur-md">
-      <div className="max-w-[1400px] mx-auto px-5 lg:px-10">
+      <div className="max-w-[1800px] mx-auto px-5 lg:px-10">
         <div className="relative flex items-center justify-between h-[72px]">
           {/* Logo */}
           <Link to="/" className="shrink-0 flex items-center relative z-10" aria-label="Mayukhaditya home">
             <img
               src={logo}
               alt="Mayukhaditya"
-              className="h-[2.7rem] md:h-[3.3rem] w-auto object-contain"
+              className="h-[2.7rem] md:h-[3.3rem] w-auto object-contain brightness-130"
             />
           </Link>
 
@@ -71,70 +55,52 @@ const Navbar = () => {
           >
             <ul className="flex items-center gap-7 xl:gap-9">
               {links.map((link) => (
-                <li key={link.to}>
+                <li key={link.to} className="relative flex items-center">
                   <NavLink to={link.to} className={navClass}>
                     {link.label}
                   </NavLink>
+                  {link.to === "/services" && (
+                    <>
+                      <svg className="absolute w-[14px] h-[14px] -bottom-[10px] left-[15%] fill-[#e8a020] pointer-events-none animate-twinkle" viewBox="0 0 24 24">
+                        <path d="M12,0 C12,6.6 17.4,12 24,12 C17.4,12 12,17.4 12,24 C12,17.4 6.6,12 0,12 C6.6,12 12,6.6 12,0 Z"/>
+                      </svg>
+                      <svg className="absolute w-[10px] h-[10px] -bottom-[15px] left-[45%] fill-[#e8a020] pointer-events-none animate-twinkle delay-500" viewBox="0 0 24 24">
+                        <path d="M12,0 C12,6.6 17.4,12 24,12 C17.4,12 12,17.4 12,24 C12,17.4 6.6,12 0,12 C6.6,12 12,6.6 12,0 Z"/>
+                      </svg>
+                      <svg className="absolute w-[16px] h-[16px] -top-[4px] -right-[8px] fill-[#e8a020] pointer-events-none animate-twinkle delay-1000" viewBox="0 0 24 24">
+                        <path d="M12,0 C12,6.6 17.4,12 24,12 C17.4,12 12,17.4 12,24 C12,17.4 6.6,12 0,12 C6.6,12 12,6.6 12,0 Z"/>
+                      </svg>
+                      <svg className="absolute w-[9px] h-[9px] -bottom-[6px] right-[20%] fill-[#e8a020] pointer-events-none animate-twinkle delay-1500" viewBox="0 0 24 24">
+                        <path d="M12,0 C12,6.6 17.4,12 24,12 C17.4,12 12,17.4 12,24 C12,17.4 6.6,12 0,12 C6.6,12 12,6.6 12,0 Z"/>
+                      </svg>
+                    </>
+                  )}
                 </li>
               ))}
             </ul>
           </nav>
 
-          {/* Desktop region selector */}
+          {/* Desktop Contact Button */}
           <div className="hidden lg:flex items-center shrink-0 relative z-10">
-            <div className="relative" ref={globalRef}>
-              <button
-                type="button"
-                onClick={() => setGlobalOpen(!globalOpen)}
-                className="flex items-center gap-2 text-ink/80 hover:text-ink text-[15px] font-medium transition-colors"
-                aria-expanded={globalOpen}
-                aria-haspopup="listbox"
+            <div className="relative flex items-center">
+              <Link
+                to="/contact"
+                className="text-sunrise font-semibold hover:brightness-110 transition"
               >
-                <GlobeIcon />
-                <span>{region}</span>
-                <svg
-                  className={`w-3.5 h-3.5 transition-transform ${globalOpen ? "rotate-180" : ""}`}
-                  fill="none"
-                  stroke="currentColor"
-                  viewBox="0 0 24 24"
-                >
-                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 9l-7 7-7-7" />
-                </svg>
-              </button>
-
-              <AnimatePresence>
-                {globalOpen && (
-                  <motion.ul
-                    initial={{ opacity: 0, y: -6 }}
-                    animate={{ opacity: 1, y: 0 }}
-                    exit={{ opacity: 0, y: -6 }}
-                    transition={{ duration: 0.15 }}
-                    className="absolute right-0 top-full mt-2 min-w-[140px] py-1 bg-paper border border-[#e8a020]/25 shadow-xl"
-                    role="listbox"
-                  >
-                    {regions.map((r) => (
-                      <li key={r}>
-                        <button
-                          type="button"
-                          role="option"
-                          aria-selected={region === r}
-                          onClick={() => {
-                            setRegion(r)
-                            setGlobalOpen(false)
-                          }}
-                          className={`w-full text-left px-4 py-2.5 text-sm transition-colors ${
-                            region === r
-                              ? "text-sunrise bg-[#e8a020]/10"
-                              : "text-ink/70 hover:text-ink hover:bg-[#e8a020]/5"
-                          }`}
-                        >
-                          {r}
-                        </button>
-                      </li>
-                    ))}
-                  </motion.ul>
-                )}
-              </AnimatePresence>
+                Contact Us
+              </Link>
+              <svg className="absolute w-[12px] h-[12px] -bottom-[6px] left-[5%] fill-[#e8a020] pointer-events-none animate-twinkle" viewBox="0 0 24 24">
+                <path d="M12,0 C12,6.6 17.4,12 24,12 C17.4,12 12,17.4 12,24 C12,17.4 6.6,12 0,12 C6.6,12 12,6.6 12,0 Z"/>
+              </svg>
+              <svg className="absolute w-[8px] h-[8px] -bottom-[10px] left-[35%] fill-[#e8a020] pointer-events-none animate-twinkle delay-500" viewBox="0 0 24 24">
+                <path d="M12,0 C12,6.6 17.4,12 24,12 C17.4,12 12,17.4 12,24 C12,17.4 6.6,12 0,12 C6.6,12 12,6.6 12,0 Z"/>
+              </svg>
+              <svg className="absolute w-[14px] h-[14px] -top-[4px] -right-[6px] fill-[#e8a020] pointer-events-none animate-twinkle delay-1000" viewBox="0 0 24 24">
+                <path d="M12,0 C12,6.6 17.4,12 24,12 C17.4,12 12,17.4 12,24 C12,17.4 6.6,12 0,12 C6.6,12 12,6.6 12,0 Z"/>
+              </svg>
+              <svg className="absolute w-[8px] h-[8px] -bottom-[4px] right-[10%] fill-[#e8a020] pointer-events-none animate-twinkle delay-1500" viewBox="0 0 24 24">
+                <path d="M12,0 C12,6.6 17.4,12 24,12 C17.4,12 12,17.4 12,24 C12,17.4 6.6,12 0,12 C6.6,12 12,6.6 12,0 Z"/>
+              </svg>
             </div>
           </div>
 
@@ -182,19 +148,14 @@ const Navbar = () => {
                 </NavLink>
               ))}
 
-              <div className="flex items-center gap-3 py-4">
-                <GlobeIcon />
-                <select
-                  value={region}
-                  onChange={(e) => setRegion(e.target.value)}
-                  className="bg-transparent text-ink/80 text-sm focus:outline-none"
+              <div className="py-4">
+                <Link
+                  to="/contact"
+                  className="block w-full text-sunrise py-3 font-semibold hover:brightness-110 transition"
+                  onClick={() => setOpen(false)}
                 >
-                  {regions.map((r) => (
-                    <option key={r} value={r} className="bg-paper text-ink">
-                      {r}
-                    </option>
-                  ))}
-                </select>
+                  Contact Us
+                </Link>
               </div>
             </nav>
           </motion.div>

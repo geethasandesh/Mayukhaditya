@@ -48,7 +48,7 @@ const WhyUs = () => {
           transition={transition}
           className="text-center mb-16"
         >
-          <p className="text-sunrise uppercase tracking-[0.25em] text-sm mb-3">Why Choose Us</p>
+          <p className="text-sunrise uppercase tracking-[0.25em] text-sm mb-3 font-bold">Why Choose Us</p>
           <h2 className="text-4xl font-bold text-ink">Your SAP Supply Chain Partner</h2>
         </motion.div>
 
@@ -64,12 +64,11 @@ const WhyUs = () => {
               key={point.title}
               variants={fadeUp}
               transition={transition}
-              className="p-6 rounded-xl border border-[#e8a020]/20 bg-paper hover:border-[#e8a020]/40 transition group"
+              className="group p-6 rounded-xl border border-[#e8a020]/20 bg-paper hover:border-[#e8a020]/45 hover:-translate-y-1 transition-all duration-300"
             >
-              <div className="w-10 h-10 rounded-lg border border-[#e8a020]/30 flex items-center justify-center text-sunrise mb-4 group-hover:bg-[#e8a020]/10 transition">
-                ◆
-              </div>
-              <h3 className="text-lg font-semibold text-ink mb-2">{point.title}</h3>
+              <h3 className="text-lg font-semibold text-ink mb-2 group-hover:text-sunrise transition">
+                {point.title}
+              </h3>
               <p className="text-sm text-muted leading-relaxed">{point.desc}</p>
             </motion.div>
           ))}
