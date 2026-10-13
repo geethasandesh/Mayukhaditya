@@ -228,27 +228,25 @@ const Footer = () => {
           <div className="grid grid-cols-2 gap-10">
             <div className="text-sm text-muted flex flex-col items-start gap-1">
               <div>
-                <p className="font-semibold text-ink mb-0.5">Hyderabad</p>
+                <p className="font-semibold text-white mb-0.5">India</p>
                 <p className="mb-0.5 text-xs">Mayukhaditya Private Limited</p>
                 <p className="mb-1 text-xs" title="F No-201, P No-1103 & 1104, Avantika's Vasista, Hafeezpet, Hyderabad – 500049, Telangana, India">
                   F No-201, P No-1103 & 1104, Avantika's Vasista, Hafeezpet, Hyderabad – 500049, Telangana, India
                 </p>
-                <p>
-                <a href="mailto:info@mayukhaditya.com" className="text-xs text-ink hover:underline font-medium block mt-1">
+                <a href="mailto:info@mayukhaditya.com" className="text-xs hover:text-gold hover:underline font-medium block mt-1 transition-colors">
                   info@mayukhaditya.com
                 </a>
-                </p>
               </div>
 
             </div>
             <div className="text-sm text-muted flex flex-col items-start gap-1">
               <div>
-                <p className="font-semibold text-ink mb-0.5">Dubai</p>
+                <p className="font-semibold text-white mb-0.5">Dubai</p>
                 <p className="mb-0.5 text-xs">Mayukhaditya LLC</p>
                 <p className="mb-1 text-xs" title="Buhaleeba Plaza 503A, Plot 256-0, Al Murqabat Street, Deira, Dubai, United Arab Emirates">
                   Buhaleeba Plaza 503A, Plot 256-0, Al Murqabat Street, Deira, Dubai, United Arab Emirates
                 </p>
-                <a href="mailto:info@mayukhaditya.com" className="text-xs text-ink hover:underline font-medium block mt-1">
+                <a href="mailto:info@mayukhaditya.com" className="text-xs  hover:text-gold hover:underline font-medium block mt-1 transition-colors">
                   info@mayukhaditya.com
                 </a>
               </div>
