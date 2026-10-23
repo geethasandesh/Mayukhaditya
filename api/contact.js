@@ -334,12 +334,16 @@ function buildHostEmail({ safeName, safeCompany, safeEmail, safeInterest, safeMe
               </div>
 
               <!-- Action Button -->
-              <div style="text-align: center; margin-bottom: 12px;">
-                <a href="mailto:${safeEmail}?subject=Re: Your Inquiry with Mayukhaditya" style="display: inline-block; background: linear-gradient(135deg, #f5c842, #e8a020, #d4620a); color: #ffffff !important; text-decoration: none !important; font-weight: 700; font-size: 15px; padding: 14px 34px; border-radius: 8px; box-shadow: 0 4px 15px rgba(232, 160, 32, 0.35); letter-spacing: 0.3px;">
-                  <span style="color: #ffffff !important; text-decoration: none !important; font-weight: 700;">Reply to ${safeName}</span>
-                </a>
-              </div>
-              <div style="text-align: center; font-size: 12px; color: #9ca3af;">
+              <table role="presentation" cellpadding="0" cellspacing="0" border="0" align="center" style="margin: 0 auto 12px auto;">
+                <tr>
+                  <td align="center" bgcolor="#e8a020" style="background-color: #e8a020; border-radius: 8px;">
+                    <a href="mailto:${safeEmail}?subject=Re: Your Inquiry with Mayukhaditya" target="_blank" style="display: inline-block; background-color: #e8a020; color: #000000 !important; font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif; font-size: 15px; font-weight: 700; text-decoration: none !important; padding: 14px 34px; border-radius: 8px; border: 1px solid #d4620a;">
+                      <span style="color: #000000 !important; text-decoration: none !important; font-weight: 700;">Reply to ${safeName} &rarr;</span>
+                    </a>
+                  </td>
+                </tr>
+              </table>
+              <div style="text-align: center; font-size: 12px; color: #6b7280; margin-bottom: 24px;">
                 Clicking reply will open an email directly addressed to ${safeEmail}
               </div>
 
@@ -548,11 +552,11 @@ export default async function handler(req, res) {
 
     // ── 5. Turnstile verification ──
     if (!data.turnstileToken) {
-      return res.status(400).json({ error: 'CAPTCHA verification is required. Please complete the challenge.' })
+      return res.status(400).json({ error: 'Please complete the verification check before submitting.' })
     }
     const turnstileOk = await verifyTurnstile(data.turnstileToken, clientIp)
     if (!turnstileOk) {
-      return res.status(400).json({ error: 'CAPTCHA verification failed. Please try again.' })
+      return res.status(400).json({ error: 'Verification check failed. Please refresh the page and try again.' })
     }
 
     // ── 6. Rate limiting ──
@@ -565,7 +569,7 @@ export default async function handler(req, res) {
 
     if (!ipResult.success || !emailResult.success) {
       return res.status(429).json({
-        error: 'You have sent too many inquiries recently. Please wait a while and try again.',
+        error: 'Too many inquiries received. Please wait a few minutes before trying again.',
       })
     }
 
@@ -603,7 +607,7 @@ export default async function handler(req, res) {
     // Host notification MUST succeed
     if (results[0].status === 'rejected') {
       console.error('[contact] Host notification failed:', results[0].reason?.message)
-      return res.status(502).json({ error: 'Unable to process your inquiry right now. Please try again later.' })
+      return res.status(502).json({ error: 'Unable to send your message right now. Please try again shortly or email us at info@mayukhaditya.com.' })
     }
 
     // Log but don't fail on confirmation email failure
@@ -615,6 +619,6 @@ export default async function handler(req, res) {
   } catch (err) {
     console.error('[contact] Handler error:', err.message)
     const status = err.statusCode || 500
-    return res.status(status).json({ error: status === 500 ? 'An unexpected error occurred. Please try again later.' : err.message })
+    return res.status(status).json({ error: status === 500 ? 'We encountered a server error. Please try again shortly or contact info@mayukhaditya.com.' : err.message })
   }
 }

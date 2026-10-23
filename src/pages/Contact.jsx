@@ -129,12 +129,12 @@ const Contact = () => {
       const result = await response.json()
 
       if (!response.ok) {
-        throw new Error(result.error || 'Failed to send your inquiry. Please try again later.')
+        throw new Error(result.error || 'Unable to submit your message. Please try again or email us directly at info@mayukhaditya.com.')
       }
 
       setSubmitted(true)
     } catch (err) {
-      setError(err.message || 'Something went wrong. Please check your connection or contact us directly.')
+      setError(err.message || 'Unable to connect to the server. Please check your internet connection or email us directly at info@mayukhaditya.com.')
       // Reset turnstile on failure so the user can retry
       setTurnstileToken(null)
       turnstileRef.current?.reset()
@@ -377,8 +377,11 @@ const Contact = () => {
                   )}
 
                   {error && (
-                    <div className="p-4 rounded-lg bg-red-500/10 border border-red-500/30 text-red-600 dark:text-red-400 text-xs leading-relaxed">
-                      <p className="font-semibold mb-1">⚠️ Error</p>
+                    <div
+                      role="alert"
+                      className="p-4 rounded-lg bg-red-500/10 border border-red-500/25 text-red-700 dark:text-red-300 text-xs md:text-sm leading-relaxed"
+                    >
+                      <p className="font-semibold mb-1 text-red-800 dark:text-red-200">Unable to send message</p>
                       <p>{error}</p>
                     </div>
                   )}
@@ -386,7 +389,7 @@ const Contact = () => {
                   <button
                     type="submit"
                     disabled={loading || (TURNSTILE_SITE_KEY && !turnstileToken)}
-                    className="w-full bg-sunrise text-black py-3.5 rounded-lg font-semibold hover:brightness-110 transition disabled:opacity-60 disabled:cursor-not-allowed flex items-center justify-center gap-2"
+                    className="w-full bg-[#e8a020] bg-sunrise text-black py-3.5 rounded-lg font-semibold hover:brightness-110 transition disabled:opacity-60 disabled:cursor-not-allowed flex items-center justify-center gap-2 shadow-sm"
                   >
                     {loading ? (
                       <>
