@@ -2,7 +2,7 @@ import { useNavigate } from "react-router-dom"
 import { motion } from "framer-motion"
 import { fadeUp, staggerContainer, transition, viewport } from "../utils/motion"
 
-export const sapServices = [
+const sapServices = [
   {
     title: "SAP S/4HANA Supply Chain",
     desc: "End-to-end supply chain design and delivery on SAP S/4HANA for logistics, inventory, and operations excellence.",

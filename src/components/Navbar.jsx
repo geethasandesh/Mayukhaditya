@@ -1,4 +1,4 @@
-import { useState, useRef, useEffect } from "react"
+import { useState } from "react"
 import { Link, NavLink } from "react-router-dom"
 import { motion, AnimatePresence } from "framer-motion"
 import logo from "../assets/logobg.png"
@@ -15,22 +15,6 @@ const navClass = ({ isActive }) =>
     isActive ? "text-sunrise" : "text-ink/80 hover:text-ink"
   }`
 
-const GlobeIcon = () => (
-  <svg className="w-[18px] h-[18px]" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden>
-    <path
-      strokeLinecap="round"
-      strokeLinejoin="round"
-      strokeWidth={1.75}
-      d="M12 21a9 9 0 100-18 9 9 0 000 18z"
-    />
-    <path
-      strokeLinecap="round"
-      strokeLinejoin="round"
-      strokeWidth={1.75}
-      d="M3.6 9h16.8M3.6 15h16.8M12 3c2.2 2.6 3.5 5.8 3.5 9s-1.3 6.4-3.5 9M12 3c-2.2 2.6-3.5 5.8-3.5 9s1.3 6.4 3.5 9"
-    />
-  </svg>
-)
 
 const Navbar = () => {
   const [open, setOpen] = useState(false)

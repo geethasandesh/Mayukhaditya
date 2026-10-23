@@ -5,7 +5,6 @@ import { fadeUp, staggerContainer, transition } from "../utils/motion"
 import { sunriseGradient } from "../utils/gradient"
 import logo from "../assets/logobg1.png"
 
-const contactBtnClass = `inline-flex items-center gap-2 ${sunriseGradient} px-6 py-2 text-sm text-black font-semibold rounded hover:from-gold hover:via-gold hover:to-gold hover:text-black hover:shadow-lg hover:-translate-y-0.5 transition-all duration-300`
 
 const solutions = [
   { title: "SAP EWM", to: "/services" },

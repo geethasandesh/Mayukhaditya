@@ -1,6 +1,7 @@
-import { useState } from "react"
+import { useState, useRef, useCallback } from "react"
 import { motion } from "framer-motion"
 import { Helmet } from "react-helmet-async"
+import { Turnstile } from "@marsidev/react-turnstile"
 import PageHero from "../components/PageHero"
 const offices = [
   {
@@ -21,10 +22,7 @@ const offices = [
   }
 ];
 
-const getMapsUrl = (query) => {
-  return `https://www.google.com/maps/search/?api=1&query=${encodeURIComponent(query)}`;
-};
-import { fadeUp, staggerContainer, transition, viewport } from "../utils/motion"
+import { fadeUp, transition, viewport } from "../utils/motion"
 
 /* ─── JSON-LD structured data ─── */
 const buildJsonLd = () => {
@@ -46,44 +44,6 @@ const buildJsonLd = () => {
   })
   return JSON.stringify(entries)
 }
-
-/* ─── Office Card ─── */
-const OfficeCard = ({ office }) => (
-  <motion.div
-    variants={fadeUp}
-    transition={transition}
-    className="p-8 rounded-2xl border border-[#e8a020]/20 bg-cream flex flex-col h-full"
-  >
-    <h3 className="text-2xl font-bold text-ink mb-1">{office.city}</h3>
-    <p className="text-sm text-muted mb-6">{office.legalName}</p>
-
-    <address className="not-italic space-y-4 text-sm text-ink flex-1">
-      {office.email && (
-        <div className="flex gap-3 items-center">
-          <span className="text-sunrise"><EmailIcon /></span>
-          <a
-            href={`mailto:${office.email}`}
-            className="hover:text-sunrise transition-colors focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#e8a020] rounded"
-          >
-            {office.email}
-          </a>
-        </div>
-      )}
-
-      {office.hours && (
-        <div className="flex gap-3 items-center">
-          <span className="text-sunrise"><ClockIcon /></span>
-          <span>
-            {office.hours}
-            {office.timezone && <span className="text-muted ml-1">({office.timezone})</span>}
-          </span>
-        </div>
-      )}
-    </address>
-
-
-  </motion.div>
-)
 
 const contactInfo = [
   { label: "Company", value: "Mayukhaditya Private Limited", href: null },
@@ -115,12 +75,72 @@ const OfficeListItem = ({ office }) => {
   )
 }
 
-const Contact = () => {
-  const [submitted, setSubmitted] = useState(false)
+const TURNSTILE_SITE_KEY = import.meta.env.VITE_TURNSTILE_SITE_KEY
 
-  const handleSubmit = (e) => {
+const Contact = () => {
+  const [formData, setFormData] = useState({
+    name: '',
+    company: '',
+    email: '',
+    interest: 'SAP EWM Implementation',
+    message: '',
+    hp_ref_code: '', // honeypot
+  })
+  const [submitted, setSubmitted] = useState(false)
+  const [loading, setLoading] = useState(false)
+  const [error, setError] = useState(null)
+  const [turnstileToken, setTurnstileToken] = useState(null)
+  const turnstileRef = useRef(null)
+
+  const handleChange = (e) => {
+    const { name, value } = e.target
+    setFormData((prev) => ({ ...prev, [name]: value }))
+  }
+
+  const handleTurnstileSuccess = useCallback((token) => {
+    setTurnstileToken(token)
+  }, [])
+
+  const handleTurnstileError = useCallback(() => {
+    setTurnstileToken(null)
+  }, [])
+
+  const handleTurnstileExpire = useCallback(() => {
+    setTurnstileToken(null)
+  }, [])
+
+  const handleSubmit = async (e) => {
     e.preventDefault()
-    setSubmitted(true)
+    setLoading(true)
+    setError(null)
+
+    try {
+      const response = await fetch('/api/contact', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify({
+          ...formData,
+          turnstileToken,
+        }),
+      })
+
+      const result = await response.json()
+
+      if (!response.ok) {
+        throw new Error(result.error || 'Failed to send your inquiry. Please try again later.')
+      }
+
+      setSubmitted(true)
+    } catch (err) {
+      setError(err.message || 'Something went wrong. Please check your connection or contact us directly.')
+      // Reset turnstile on failure so the user can retry
+      setTurnstileToken(null)
+      turnstileRef.current?.reset()
+    } finally {
+      setLoading(false)
+    }
   }
 
   return (
@@ -213,23 +233,73 @@ const Contact = () => {
 
               {submitted ? (
                 <div className="p-10 rounded-2xl border border-[#e8a020]/30 bg-cream text-center">
-                  <p className="text-3xl text-sunrise mb-3">✓</p>
+                  <div className="w-12 h-12 rounded-full bg-sunrise flex items-center justify-center mx-auto mb-4 text-black font-bold text-xl">
+                    ✓
+                  </div>
                   <h3 className="text-xl font-bold text-ink mb-2">Message Received</h3>
-                  <p className="text-muted text-sm">
-                    Thank you for reaching out. A Mayukhaditya consultant will contact you shortly.
+                  <p className="text-muted text-sm max-w-md mx-auto mb-6">
+                    Thank you for reaching out. We have received your inquiry and sent a confirmation email to <strong>{formData.email}</strong>. Our team will contact you shortly.
                   </p>
+                  <button
+                    type="button"
+                    onClick={() => {
+                      setSubmitted(false)
+                      setFormData({
+                        name: '',
+                        company: '',
+                        email: '',
+                        interest: 'SAP EWM Implementation',
+                        message: '',
+                        hp_ref_code: '',
+                      })
+                      setTurnstileToken(null)
+                      turnstileRef.current?.reset()
+                    }}
+                    className="text-xs text-sunrise hover:underline font-semibold"
+                  >
+                    Send another message
+                  </button>
                 </div>
               ) : (
                 <form
                   onSubmit={handleSubmit}
                   className="p-8 md:p-10 rounded-2xl border border-[#e8a020]/25 bg-cream space-y-5"
                 >
+                  {/* Honeypot – visually hidden, traps bots */}
+                  <div
+                    aria-hidden="true"
+                    style={{
+                      position: 'absolute',
+                      left: '-9999px',
+                      width: '1px',
+                      height: '1px',
+                      overflow: 'hidden',
+                    }}
+                  >
+                    <label htmlFor="hp_ref_code">Ref Code</label>
+                    <input
+                      type="text"
+                      id="hp_ref_code"
+                      name="hp_ref_code"
+                      value={formData.hp_ref_code}
+                      onChange={handleChange}
+                      tabIndex={-1}
+                      autoComplete="off"
+                      aria-hidden="true"
+                      data-lpignore="true"
+                      data-1p-ignore
+                    />
+                  </div>
+
                   <div className="grid md:grid-cols-2 gap-5">
                     <div>
                       <label className="block text-xs text-sunrise uppercase tracking-wider mb-2"><b>Name</b></label>
                       <input
                         required
                         type="text"
+                        name="name"
+                        value={formData.name}
+                        onChange={handleChange}
                         className="w-full px-4 py-3 rounded-lg bg-paper border border-[#e8a020]/25 text-ink placeholder:text-muted focus:outline-none focus:border-[#e8a020] transition"
                         placeholder="Your name"
                       />
@@ -239,6 +309,9 @@ const Contact = () => {
                       <input
                         required
                         type="text"
+                        name="company"
+                        value={formData.company}
+                        onChange={handleChange}
                         className="w-full px-4 py-3 rounded-lg bg-paper border border-[#e8a020]/25 text-ink placeholder:text-muted focus:outline-none focus:border-[#e8a020] transition"
                         placeholder="Company name"
                       />
@@ -251,13 +324,21 @@ const Contact = () => {
                       <input
                         required
                         type="email"
+                        name="email"
+                        value={formData.email}
+                        onChange={handleChange}
                         className="w-full px-4 py-3 rounded-lg bg-paper border border-[#e8a020]/25 text-ink placeholder:text-muted focus:outline-none focus:border-[#e8a020] transition"
                         placeholder="you@company.com"
                       />
                     </div>
                     <div>
                       <label className="block text-xs text-sunrise uppercase tracking-wider mb-2"><b>Interest</b></label>
-                      <select className="w-full px-4 py-3 rounded-lg bg-paper border border-[#e8a020]/25 text-ink focus:outline-none focus:border-[#e8a020] transition">
+                      <select
+                        name="interest"
+                        value={formData.interest}
+                        onChange={handleChange}
+                        className="w-full px-4 py-3 rounded-lg bg-paper border border-[#e8a020]/25 text-ink focus:outline-none focus:border-[#e8a020] transition"
+                      >
                         <option>SAP EWM Implementation</option>
                         <option>Warehouse Automation</option>
                         <option>SAP S/4HANA Supply Chain</option>
@@ -272,17 +353,52 @@ const Contact = () => {
                     <label className="block text-xs text-sunrise uppercase tracking-wider mb-2"><b>Message</b></label>
                     <textarea
                       required
+                      name="message"
+                      value={formData.message}
+                      onChange={handleChange}
                       rows={5}
                       className="w-full px-4 py-3 rounded-lg bg-paper border border-[#e8a020]/25 text-ink placeholder:text-muted focus:outline-none focus:border-[#e8a020] transition resize-none"
                       placeholder="Describe your warehouse, logistics, or SAP project needs..."
                     />
                   </div>
 
+                  {/* Cloudflare Turnstile widget */}
+                  {TURNSTILE_SITE_KEY && (
+                    <div className="flex justify-center">
+                      <Turnstile
+                        ref={turnstileRef}
+                        siteKey={TURNSTILE_SITE_KEY}
+                        onSuccess={handleTurnstileSuccess}
+                        onError={handleTurnstileError}
+                        onExpire={handleTurnstileExpire}
+                        options={{ theme: 'light', size: 'normal' }}
+                      />
+                    </div>
+                  )}
+
+                  {error && (
+                    <div className="p-4 rounded-lg bg-red-500/10 border border-red-500/30 text-red-600 dark:text-red-400 text-xs leading-relaxed">
+                      <p className="font-semibold mb-1">⚠️ Error</p>
+                      <p>{error}</p>
+                    </div>
+                  )}
+
                   <button
                     type="submit"
-                    className="w-full bg-sunrise text-black py-3.5 rounded-lg font-semibold hover:brightness-110 transition"
+                    disabled={loading || (TURNSTILE_SITE_KEY && !turnstileToken)}
+                    className="w-full bg-sunrise text-black py-3.5 rounded-lg font-semibold hover:brightness-110 transition disabled:opacity-60 disabled:cursor-not-allowed flex items-center justify-center gap-2"
                   >
-                    Send Inquiry
+                    {loading ? (
+                      <>
+                        <svg className="animate-spin h-4 w-4 text-black" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24">
+                          <circle className="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" strokeWidth="4"></circle>
+                          <path className="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z"></path>
+                        </svg>
+                        Sending Inquiry...
+                      </>
+                    ) : (
+                      'Send Inquiry'
+                    )}
                   </button>
                 </form>
               )}

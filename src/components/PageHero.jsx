@@ -11,7 +11,7 @@ const PageHero = ({ label, title, subtitle }) => {
         <motion.p
           {...fadeUp}
           transition={transition}
-          className="text-sunrise text-bold text-xl uppercase tracking-[0.3em] text-sm font-medium mb-4"
+          className="text-sunrise font-semibold uppercase tracking-[0.3em] text-sm mb-4"
         >
           {label}
         </motion.p>
